@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Clinics Dedicated Page — Locations, Hub & Booking Guide
+   ========================================================================== */
+
+.clinics-page-hero {
+  position: relative;
+  width: 100%;
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+  background: linear-gradient(
+    180deg,
+    rgba(239, 247, 250, 0.6) 0%,
+    rgba(253, 242, 246, 0.4) 60%,
+    transparent 100%
+  );
+  overflow: hidden;
+  text-align: center;
+}
+
+:is(.dark) .clinics-page-hero {
+  background: linear-gradient(
+    180deg,
+    rgba(13, 37, 47, 0.4) 0%,
+    rgba(22, 28, 36, 0.6) 100%
+  );
+}
+
+.clinics-page-hero-container {
+  max-width: 56rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clinics-breadcrumbs-wrapper {
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.clinics-page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background: var(--brand-pink-muted);
+  border: 1px solid rgba(221, 107, 144, 0.3);
+  color: var(--brand-pink);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(221, 107, 144, 0.12);
+}
+
+:is(.dark) .clinics-page-badge {
+  background: rgba(221, 107, 144, 0.15);
+  border-color: rgba(221, 107, 144, 0.35);
+  color: #ffb4cc;
+}
+
+.clinics-page-title {
+  font-size: clamp(2rem, 4.8vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--foreground);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.clinics-page-subtitle {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--muted-foreground);
+  max-width: 46rem;
+  margin-bottom: 2.5rem;
+}
+
+.clinics-features-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.clinics-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  font-size: 0.925rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.clinics-pill-icon {
+  color: var(--brand-blue);
+  flex-shrink: 0;
+}
+
+/* ── Booking Guide Section ───────────────────────────────────────────────── */
+.clinics-guide-section {
+  width: 100%;
+  padding-block: clamp(3.5rem, 6vw, 5rem);
+  background: var(--background);
+  border-top: 1px solid var(--border);
+}
+
+.clinics-guide-container {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.clinics-guide-header {
+  text-align: center;
+  max-width: 44rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.clinics-guide-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.clinics-guide-subtitle {
+  font-size: 1.05rem;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+.clinics-guide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .clinics-guide-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.clinics-step-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.75rem;
+  border-radius: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.clinics-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -6px rgba(0, 0, 0, 0.08);
+  border-color: rgba(90, 159, 185, 0.4);
+}
+
+.clinics-step-num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.85rem;
+  background: var(--brand-blue-muted);
+  color: var(--brand-blue);
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 10px rgba(90, 159, 185, 0.15);
+}
+
+.clinics-step-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.65rem;
+}
+
+.clinics-step-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}

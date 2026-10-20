@@ -1,0 +1,385 @@
+/* =============================================================================
+   Vision & Innovation Section (رؤيتنا ورسالتنا الطبية) — Senior Medical UI/UX
+   Brand Tokens:
+     --brand-blue: #5a9fb9
+     --brand-pink: #dd6b90
+     --brand-blue-light: #73b0c7
+     --brand-pink-light: #f8d4e0
+     --brand-blue-muted: #eff7fa
+     --brand-pink-muted: #fdf2f6
+   ============================================================================= */
+
+/* ── Section Wrapper (Edge-to-Edge with Ambient Lighting) ─────────────────── */
+.vision-section {
+  width: 100%;
+  position: relative;
+  padding-block: clamp(3.75rem, 7vw, 6.5rem);
+  background: linear-gradient(
+    180deg,
+    var(--background) 0%,
+    rgba(239, 247, 250, 0.45) 30%,
+    rgba(253, 242, 246, 0.35) 75%,
+    var(--background) 100%
+  );
+  border-bottom: 1px solid rgba(90, 159, 185, 0.08);
+  overflow: hidden;
+}
+
+/* Subtle decorative ambient radial glow orbs */
+.vision-ambient-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+}
+
+.vision-ambient-glow-pink {
+  width: 24rem;
+  height: 24rem;
+  top: 10%;
+  inset-inline-end: 5%;
+  background: radial-gradient(circle, rgba(221, 107, 144, 0.15) 0%, transparent 70%);
+}
+
+.vision-ambient-glow-blue {
+  width: 28rem;
+  height: 28rem;
+  bottom: 5%;
+  inset-inline-start: 5%;
+  background: radial-gradient(circle, rgba(90, 159, 185, 0.18) 0%, transparent 70%);
+}
+
+.vision-section .section-container,
+.vision-section .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+/* ── Section Header ───────────────────────────────────────────────────────── */
+.vision-header {
+  text-align: center;
+  max-width: 50rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2.75rem, 5.5vw, 4.25rem);
+}
+
+.vision-eyebrow-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background: rgba(90, 159, 185, 0.1);
+  border: 1px solid rgba(90, 159, 185, 0.22);
+  backdrop-filter: blur(8px);
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px -2px rgba(90, 159, 185, 0.15);
+}
+
+.vision-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--brand-blue);
+}
+
+.vision-main-heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--foreground);
+  margin-bottom: 1.15rem;
+  letter-spacing: -0.015em;
+}
+
+.vision-main-subtitle {
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.85;
+  color: var(--muted-foreground);
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+/* ── 3-Column Vision Cards Grid ───────────────────────────────────────────── */
+.vision-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .vision-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .vision-cards {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ── Individual Vision Card (Glassmorphic & Interactive) ─────────────────── */
+.vision-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1.35rem;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(90, 159, 185, 0.14);
+  box-shadow:
+    0 4px 20px -4px rgba(90, 159, 185, 0.08),
+    0 1px 3px 0 rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    background-color 0.4s ease;
+  overflow: hidden;
+}
+
+/* Shimmer accent top bar that expands on hover */
+.vision-card-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--card-accent-color, var(--brand-blue)),
+    transparent
+  );
+  opacity: 0.4;
+  transition:
+    opacity 0.4s ease,
+    height 0.4s ease;
+}
+
+.vision-card:hover .vision-card-accent-bar {
+  opacity: 1;
+  height: 4px;
+}
+
+/* Accent color tokens per card */
+.vision-card-pink {
+  --card-accent-color: var(--brand-pink);
+  --card-accent-bg: rgba(221, 107, 144, 0.08);
+  --card-accent-border: rgba(221, 107, 144, 0.22);
+  --card-accent-glow: rgba(221, 107, 144, 0.2);
+}
+
+.vision-card-blue {
+  --card-accent-color: var(--brand-blue);
+  --card-accent-bg: rgba(90, 159, 185, 0.08);
+  --card-accent-border: rgba(90, 159, 185, 0.22);
+  --card-accent-glow: rgba(90, 159, 185, 0.2);
+}
+
+.vision-card-teal {
+  --card-accent-color: #25899e;
+  --card-accent-bg: rgba(37, 137, 158, 0.08);
+  --card-accent-border: rgba(37, 137, 158, 0.22);
+  --card-accent-glow: rgba(37, 137, 158, 0.2);
+}
+
+/* Hover state on card */
+.vision-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-accent-border);
+  box-shadow:
+    0 22px 35px -10px var(--card-accent-glow),
+    0 10px 18px -6px rgba(0, 0, 0, 0.04),
+    0 0 0 1px var(--card-accent-border);
+}
+
+/* ── Card Top (Icon & Pill Badge) ─────────────────────────────────────────── */
+.vision-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.vision-icon-wrapper {
+  position: relative;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-accent-bg);
+  border: 1px solid var(--card-accent-border);
+  color: var(--card-accent-color);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s ease;
+}
+
+.vision-card:hover .vision-icon-wrapper {
+  transform: scale(1.08) rotate(-3deg);
+  background: var(--card-accent-color);
+  color: #ffffff;
+}
+
+.vision-icon-halo {
+  position: absolute;
+  inset: -6px;
+  border-radius: 1.25rem;
+  background: var(--card-accent-color);
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.vision-card:hover .vision-icon-halo {
+  opacity: 0.35;
+}
+
+.vision-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: var(--card-accent-bg);
+  color: var(--card-accent-color);
+  border: 1px solid var(--card-accent-border);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+/* ── Card Body & Typography ──────────────────────────────────────────────── */
+.vision-card-body {
+  flex-grow: 1;
+  margin-bottom: 1.75rem;
+}
+
+.vision-card-title {
+  font-size: clamp(1.2rem, 1.8vw, 1.35rem);
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.45rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.vision-card:hover .vision-card-title {
+  color: var(--card-accent-color);
+}
+
+.vision-card-subtitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--card-accent-color);
+  margin-bottom: 0.85rem;
+  opacity: 0.92;
+}
+
+.vision-card-desc {
+  font-size: 0.925rem;
+  line-height: 1.75;
+  color: var(--muted-foreground);
+}
+
+/* ── Card Footer & CTA Action ────────────────────────────────────────────── */
+.vision-card-footer {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(90, 159, 185, 0.1);
+}
+
+.vision-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--card-accent-color);
+  transition:
+    gap 0.3s ease,
+    color 0.3s ease;
+  text-decoration: none;
+}
+
+.vision-card-link:hover {
+  gap: 0.75rem;
+  filter: brightness(1.1);
+}
+
+/* ── Dark Mode Harmony ────────────────────────────────────────────────────── */
+.dark .vision-section {
+  background: linear-gradient(
+    180deg,
+    var(--background) 0%,
+    rgba(30, 41, 59, 0.4) 30%,
+    rgba(40, 30, 48, 0.3) 75%,
+    var(--background) 100%
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dark .vision-card {
+  background: rgba(24, 30, 44, 0.75);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.4);
+}
+
+.dark .vision-card-pink {
+  --card-accent-bg: rgba(221, 107, 144, 0.16);
+  --card-accent-border: rgba(221, 107, 144, 0.32);
+  --card-accent-glow: rgba(221, 107, 144, 0.28);
+}
+
+.dark .vision-card-blue {
+  --card-accent-bg: rgba(90, 159, 185, 0.16);
+  --card-accent-border: rgba(90, 159, 185, 0.32);
+  --card-accent-glow: rgba(90, 159, 185, 0.28);
+}
+
+.dark .vision-card-teal {
+  --card-accent-bg: rgba(37, 137, 158, 0.16);
+  --card-accent-border: rgba(37, 137, 158, 0.32);
+  --card-accent-glow: rgba(37, 137, 158, 0.28);
+}
+
+.dark .vision-card-footer {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .vision-eyebrow-box {
+  background: rgba(90, 159, 185, 0.15);
+  border-color: rgba(90, 159, 185, 0.3);
+}
+
+/* ── Reduced Motion Accessibility ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .vision-card,
+  .vision-icon-wrapper,
+  .vision-card-accent-bar,
+  .vision-icon-halo,
+  .vision-card-link {
+    transition: none !important;
+  }
+
+  .vision-card:hover {
+    transform: none !important;
+  }
+}

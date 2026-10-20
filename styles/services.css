@@ -1,0 +1,305 @@
+/* =============================================================================
+   Services Section (خدمات العيادة) — Senior Medical UI/UX Design System
+   Brand Tokens:
+     --brand-blue: #5a9fb9
+     --brand-pink: #dd6b90
+     --brand-blue-light: #73b0c7
+     --brand-pink-light: #f8d4e0
+     --brand-blue-muted: #eff7fa
+     --brand-pink-muted: #fdf2f6
+   ============================================================================= */
+
+/* ── Section Wrapper (Edge-to-Edge) ───────────────────────────────────────── */
+.services-section {
+  width: 100%;
+  position: relative;
+  padding-block: clamp(3.75rem, 7vw, 6rem);
+  background: linear-gradient(
+    180deg,
+    var(--background) 0%,
+    rgba(239, 247, 250, 0.5) 45%,
+    rgba(253, 242, 246, 0.25) 85%,
+    var(--background) 100%
+  );
+  border-top: 1px solid rgba(90, 159, 185, 0.08);
+  border-bottom: 1px solid rgba(90, 159, 185, 0.08);
+  overflow: hidden;
+}
+
+.services-section .section-container,
+.services-section .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+/* ── Section Header ───────────────────────────────────────────────────────── */
+.services-section .section-title {
+  text-align: center;
+  max-width: 48rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.services-eyebrow-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(90, 159, 185, 0.1);
+  border: 1px solid rgba(90, 159, 185, 0.2);
+  margin-bottom: 0.85rem;
+}
+
+.services-pulse-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  box-shadow: 0 0 0 2px rgba(90, 159, 185, 0.25);
+}
+
+.services-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brand-blue);
+}
+
+.services-main-heading {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.services-main-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  max-width: 38rem;
+  margin-inline: auto;
+}
+
+/* ── 9 Services Responsive Grid (3 Columns) ───────────────────────────────── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ── Service Card ─────────────────────────────────────────────────────────── */
+.service-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid rgba(90, 159, 185, 0.14);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 4px 20px -2px rgba(90, 159, 185, 0.06),
+    0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+}
+
+/* Top Accent Gradient Line on Hover */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-pink));
+  opacity: 0;
+  z-index: 10;
+  transition:
+    opacity 0.35s ease,
+    height 0.35s ease;
+}
+
+/* Card Hover Elevation */
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(90, 159, 185, 0.35);
+  box-shadow:
+    0 20px 42px -10px rgba(90, 159, 185, 0.22),
+    0 4px 14px -2px rgba(221, 107, 144, 0.08);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+  height: 4px;
+}
+
+/* ── Image Wrapper ────────────────────────────────────────────────────────── */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.06);
+}
+
+/* Category Badge Tag */
+.service-category-tag {
+  position: absolute;
+  top: 0.85rem;
+  inset-inline-start: 0.85rem;
+  z-index: 2;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(8px);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Card Content & Typography ────────────────────────────────────────────── */
+.service-card .content {
+  padding: 1.5rem 1.35rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.service-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.35;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-card-title {
+  color: var(--brand-blue);
+}
+
+.service-card-desc {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+/* ── Interactive Action Link (المزيد) ─────────────────────────────────────── */
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brand-blue);
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.75rem;
+  background: rgba(90, 159, 185, 0.08);
+  border: 1px solid rgba(90, 159, 185, 0.15);
+  width: fit-content;
+  margin-top: auto;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.service-card:hover .service-link {
+  background: var(--brand-blue);
+  color: #ffffff !important;
+  border-color: var(--brand-blue);
+  transform: translateX(-3px);
+}
+
+[dir="ltr"] .service-card:hover .service-link {
+  transform: translateX(3px);
+}
+
+.service-arrow-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-arrow-box {
+  transform: translateX(-3px);
+}
+
+[dir="ltr"] .service-card:hover .service-arrow-box {
+  transform: translateX(3px);
+}
+
+/* ── Dark Mode Harmony ────────────────────────────────────────────────────── */
+.dark .services-section {
+  background: linear-gradient(
+    180deg,
+    var(--background) 0%,
+    rgba(30, 41, 59, 0.45) 50%,
+    var(--background) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .service-card {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .service-card:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(90, 159, 185, 0.35);
+  box-shadow: 0 20px 42px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Reduced Motion ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-img,
+  .service-link,
+  .service-arrow-box {
+    transition: none !important;
+    transform: none !important;
+  }
+}

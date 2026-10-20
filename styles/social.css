@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Social Section — Social Media & Direct Channels Strip
+   ========================================================================== */
+
+.social-section {
+  position: relative;
+  width: 100%;
+  padding-block: clamp(3.25rem, 5.5vw, 4.75rem);
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0.85) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+:is(.dark) .social-section {
+  background: linear-gradient(
+    180deg,
+    rgba(17, 24, 39, 0.9) 0%,
+    rgba(13, 37, 47, 0.95) 100%
+  );
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.social-section .container {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-section h3 {
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.01em;
+  position: relative;
+  display: inline-block;
+}
+
+.social-section h3::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-pink), var(--brand-blue));
+  border-radius: 9999px;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.15rem;
+  margin-top: 0.5rem;
+}
+
+.social-links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.35rem;
+  height: 3.35rem;
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.28s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.social-links a i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-links a:hover {
+  transform: translateY(-4px) scale(1.08);
+}
+
+.social-links a:hover i {
+  transform: scale(1.12);
+}
+
+.social-links a:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Facebook */
+.social-links a.facebook {
+  background: #1877f2;
+}
+
+.social-links a.facebook:hover {
+  box-shadow: 0 12px 24px -4px rgba(24, 119, 242, 0.48);
+}
+
+/* YouTube */
+.social-links a.youtube {
+  background: #ff0000;
+}
+
+.social-links a.youtube:hover {
+  box-shadow: 0 12px 24px -4px rgba(255, 0, 0, 0.48);
+}
+
+/* Instagram */
+.social-links a.instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+.social-links a.instagram:hover {
+  box-shadow: 0 12px 24px -4px rgba(220, 39, 67, 0.52);
+}
+
+/* Accessibility Focus States */
+.social-links a:focus-visible {
+  outline: 3px solid var(--brand-pink);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .social-section {
+    padding-block: 2.75rem;
+  }
+
+  .social-links {
+    gap: 0.9rem;
+  }
+
+  .social-links a {
+    width: 3.1rem;
+    height: 3.1rem;
+  }
+}

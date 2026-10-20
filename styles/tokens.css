@@ -1,0 +1,16 @@
+/**
+ * Supplemental design tokens (non-shadcn) for layout and motion.
+ * Tailwind @theme mappings live in globals.css.
+ */
+:root {
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-skip-link: 600;
+}

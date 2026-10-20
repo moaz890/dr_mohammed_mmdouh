@@ -1,0 +1,285 @@
+/* =============================================================================
+   Statistics Section — Senior Medical UI/UX Design System
+   Brand Tokens:
+     --brand-blue: #5a9fb9
+     --brand-pink: #dd6b90
+     --brand-blue-light: #73b0c7
+     --brand-pink-light: #f8d4e0
+     --brand-blue-muted: #eff7fa
+     --brand-pink-muted: #fdf2f6
+   ============================================================================= */
+
+/* ── Section Wrapper (Edge-to-Edge) ───────────────────────────────────────── */
+.stats-section {
+  width: 100%;
+  position: relative;
+  padding-block: clamp(3rem, 6vw, 4.75rem);
+  background: linear-gradient(
+    180deg,
+    var(--background) 0%,
+    rgba(239, 247, 250, 0.5) 45%,
+    rgba(253, 242, 246, 0.35) 80%,
+    var(--background) 100%
+  );
+  border-top: 1px solid rgba(90, 159, 185, 0.08);
+  border-bottom: 1px solid rgba(90, 159, 185, 0.08);
+  overflow: hidden;
+}
+
+/* Subtle decorative ambient radial glow in the background */
+.stats-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80rem;
+  height: 25rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(90, 159, 185, 0.07) 0%,
+    rgba(221, 107, 144, 0.04) 50%,
+    transparent 75%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Container (Max 80rem matching navbar and hero) ───────────────────────── */
+.stats-section .section-container,
+.stats-section .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+/* ── 4-Column Stats Grid ──────────────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.75rem);
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ── Stat Item Card (Glassmorphic, Elevated, Tactile) ─────────────────────── */
+.stat-item {
+  position: relative;
+  background: var(--card);
+  border: 1px solid rgba(90, 159, 185, 0.14);
+  border-radius: 1.25rem;
+  padding: clamp(1.75rem, 3vw, 2.25rem) 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  box-shadow:
+    0 4px 20px -2px rgba(90, 159, 185, 0.06),
+    0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* Top Accent Gradient Line that glows on hover */
+.stat-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-pink));
+  opacity: 0.25;
+  transition:
+    opacity 0.35s ease,
+    height 0.35s ease;
+}
+
+/* Hover Elevation & Soft Medical Glow */
+.stat-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(90, 159, 185, 0.32);
+  box-shadow:
+    0 18px 36px -8px rgba(90, 159, 185, 0.16),
+    0 4px 14px -2px rgba(221, 107, 144, 0.08);
+}
+
+.stat-item:hover::before {
+  opacity: 1;
+  height: 4px;
+}
+
+/* ── Floating Stat Icon Badge ─────────────────────────────────────────────── */
+.stat-icon {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Distinct gentle dual-tone background per icon */
+.stat-icon-calendar {
+  background: linear-gradient(
+    135deg,
+    rgba(90, 159, 185, 0.12) 0%,
+    rgba(115, 176, 199, 0.22) 100%
+  );
+  border: 1px solid rgba(90, 159, 185, 0.2);
+}
+
+.stat-icon-procedures {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 137, 158, 0.12) 0%,
+    rgba(90, 159, 185, 0.2) 100%
+  );
+  border: 1px solid rgba(37, 137, 158, 0.2);
+}
+
+.stat-icon-users {
+  background: linear-gradient(
+    135deg,
+    rgba(221, 107, 144, 0.12) 0%,
+    rgba(248, 212, 224, 0.45) 100%
+  );
+  border: 1px solid rgba(221, 107, 144, 0.2);
+}
+
+.stat-icon-star {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.12) 0%,
+    rgba(251, 191, 36, 0.25) 100%
+  );
+  border: 1px solid rgba(245, 158, 11, 0.22);
+}
+
+/* Icon micro-interaction on hover */
+.stat-item:hover .stat-icon {
+  transform: scale(1.1) translateY(-2px);
+}
+
+.stat-item:hover .stat-icon-calendar {
+  box-shadow: 0 8px 16px -4px rgba(90, 159, 185, 0.25);
+}
+
+.stat-item:hover .stat-icon-procedures {
+  box-shadow: 0 8px 16px -4px rgba(37, 137, 158, 0.25);
+}
+
+.stat-item:hover .stat-icon-users {
+  box-shadow: 0 8px 16px -4px rgba(221, 107, 144, 0.25);
+}
+
+.stat-item:hover .stat-icon-star {
+  box-shadow: 0 8px 16px -4px rgba(245, 158, 11, 0.25);
+}
+
+/* ── Stat Number (Crisp, High-Contrast Tabular Numerals) ──────────────────── */
+.stat-number {
+  font-size: clamp(2.25rem, 4vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.15rem;
+}
+
+.stat-number-inner {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15rem;
+}
+
+.stat-digits {
+  color: var(--foreground);
+  font-weight: 800;
+}
+
+.stat-prefix,
+.stat-suffix {
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+/* ── Stat Label (سنة خبرة / عملية ناجحة / ...) ────────────────────────────── */
+.stat-label {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+/* ── Stat Description (Micro-reassurance) ─────────────────────────────────── */
+.stat-description {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  line-height: 1.45;
+  max-width: 14rem;
+  margin-inline: auto;
+}
+
+/* ── Dark Mode Harmony (if ever toggled) ──────────────────────────────────── */
+.dark .stats-section {
+  background: linear-gradient(
+    180deg,
+    var(--background) 0%,
+    rgba(30, 41, 59, 0.5) 50%,
+    var(--background) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .stat-item {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .stat-item:hover {
+  border-color: rgba(90, 159, 185, 0.4);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Reduced Motion ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .stat-item,
+  .stat-icon {
+    transition: none !important;
+    transform: none !important;
+  }
+}
