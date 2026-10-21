@@ -2,8 +2,8 @@ import { getTranslations } from "next-intl/server";
 
 /* ── 8 Distinct, Highly Expressive Medical Credentials Icons ──────────────── */
 
-/** 1. MBBS: Bachelor of Medicine & Surgery (Stethoscope with heartbeat waveform) */
-const StethoscopeHeart = () => (
+/** 1. M.Sc.: Master's Degree in Obstetrics & Gynecology (Scroll with ribbon & academic seal) */
+const MasterDegreeScroll = () => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -14,15 +14,14 @@ const StethoscopeHeart = () => (
     aria-hidden
     className="h-6 w-6"
   >
-    <path d="M4.5 3v5a4.5 4.5 0 0 0 9 0V3" />
-    <path d="M9 12.5v3.5a3 3 0 0 0 3 3h2" />
-    <circle cx="18" cy="19" r="3" />
-    <path d="M2 3h5M11 3h5" />
-    <path d="M16 19h1" />
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <circle cx="12" cy="15" r="3" />
+    <path d="m10 18 2 2 2-2" />
   </svg>
 );
 
-/** 2. MD: Medical Doctorate in OB/GYN (Doctoral mortarboard with scroll & laurel) */
+/** 2. MD: Doctorate in Obstetrics, Gynecology & ICSI (Doctoral mortarboard with laurel & scroll) */
 const DoctorateDegree = () => (
   <svg
     viewBox="0 0 24 24"
@@ -40,27 +39,8 @@ const DoctorateDegree = () => (
   </svg>
 );
 
-/** 3. Fellowship UK: MRCOG London (Royal Crown of the Royal College with shield) */
-const RoyalCollegeCrown = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden
-    className="h-6 w-6"
-  >
-    <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
-    <circle cx="12" cy="4" r="1" />
-    <circle cx="5" cy="4" r="1" />
-    <circle cx="19" cy="4" r="1" />
-  </svg>
-);
-
-/** 4. Fellowship EU: GESEA European Endoscopy (European stars circle with trocar precision cross) */
-const EuropeanEndoscopy = () => (
+/** 3. GESEA LEVEL 2 MIGS: European Society of Gynaecological Endoscopy Board Certification */
+const GeseaCertification = () => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -72,13 +52,14 @@ const EuropeanEndoscopy = () => (
     className="h-6 w-6"
   >
     <circle cx="12" cy="12" r="9" strokeDasharray="2 3" />
-    <path d="m14 10-4 4m0-4 4 4" />
-    <path d="M12 3v3M12 18v3M3 12h3M18 12h3" />
+    <circle cx="12" cy="12" r="4" />
+    <path d="m10 12 1.5 1.5L14.5 10" strokeWidth={2} />
+    <path d="M12 2v2M12 20v2M2 12h2M20 12h2" />
   </svg>
 );
 
-/** 5. Lecturer: Faculty Lecturer & Supervisor (Academic lecture podium & chalkboard) */
-const LecturerPodium = () => (
+/** 4. ESGE Member: European Society for Gynaecological Endoscopy (Shield & endoscopy telescope) */
+const EsgeMembership = () => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -89,52 +70,13 @@ const LecturerPodium = () => (
     aria-hidden
     className="h-6 w-6"
   >
-    <path d="M4 19h16" />
-    <path d="M4 4h16v10H4z" />
-    <path d="M12 14v5" />
-    <path d="M8 8h5M8 11h8" />
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <path d="m9 12 2 2 4-4" strokeWidth={2} />
   </svg>
 );
 
-/** 6. Consultant: Senior Consultant Surgeon & IVF Expert (Surgical scrub badge with star of mastery) */
-const SurgeonConsultant = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden
-    className="h-6 w-6"
-  >
-    <circle cx="12" cy="8" r="5" />
-    <path d="M3 21v-2a7 7 0 0 1 14 0v2" />
-    <path d="M17 11l2 2 4-4" />
-    <path d="M8 8h.01M16 8h.01" />
-  </svg>
-);
-
-/** 7. Kasr Al-Ainy: Cairo University Hospitals (Hospital medical center with health cross) */
-const KasrAlAinyHospital = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden
-    className="h-6 w-6"
-  >
-    <rect x="3" y="3" width="18" height="18" rx="2" />
-    <path d="M12 7v10M7 12h10" />
-    <path d="M9 21v-3h6v3" />
-  </svg>
-);
-
-/** 8. Society: EFSS Egyptian Fertility Society (Fertility DNA double-helix / embryo life node) */
-const FertilitySociety = () => (
+/** 5. ASRM Member: American Society for Reproductive Medicine (Fertility DNA node & vitality) */
+const AsrmMembership = () => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -154,6 +96,65 @@ const FertilitySociety = () => (
   </svg>
 );
 
+/** 6. Senior Consultant: Infertility & ICSI Consultant (Stethoscope with medical star badge) */
+const ConsultantBadge = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+    className="h-6 w-6"
+  >
+    <path d="M4.5 3v5a4.5 4.5 0 0 0 9 0V3" />
+    <path d="M9 12.5v3.5a3 3 0 0 0 3 3h2" />
+    <circle cx="18" cy="19" r="3" />
+    <path d="M2 3h5M11 3h5" />
+    <path d="M16 19h1" />
+  </svg>
+);
+
+/** 7. Advanced Laparoscopy Expert: Laparoscopic Hysterectomy & Complex Surgery (Trocar & precision scope) */
+const LaparoscopyExpert = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+    className="h-6 w-6"
+  >
+    <circle cx="6" cy="18" r="2.5" />
+    <circle cx="18" cy="18" r="2.5" />
+    <path d="M8 16.5l3.5-4.5" />
+    <path d="M16 16.5l-3.5-4.5" />
+    <path d="M12 12V3" strokeWidth={2} />
+    <path d="M10 3.5h4M10.5 2l1.5 1 1.5-1" />
+    <circle cx="12" cy="6" r="1" fill="currentColor" />
+  </svg>
+);
+
+/** 8. Philosophy of Care: Evidence-Based & Compassionate Medical Care (Empathy heart with shield) */
+const CarePhilosophy = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+    className="h-6 w-6"
+  >
+    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+    <path d="M12 8v6M9 11h6" strokeWidth={2} />
+  </svg>
+);
+
 const CheckVerified = () => (
   <svg
     viewBox="0 0 24 24"
@@ -170,14 +171,14 @@ const CheckVerified = () => (
 );
 
 type CredentialId =
-  | "mbbs"
+  | "msc"
   | "md"
-  | "fellowship_uk"
-  | "fellowship_eu"
-  | "lecturer"
+  | "gesea"
+  | "esge"
+  | "asrm"
   | "consultant"
-  | "kasr_al_aini"
-  | "society";
+  | "laparoscopy_expert"
+  | "care_philosophy";
 
 type Credential = {
   id: CredentialId;
@@ -186,14 +187,14 @@ type Credential = {
 };
 
 const CREDENTIALS: Credential[] = [
-  { id: "mbbs", icon: StethoscopeHeart, variant: "blue" },
+  { id: "msc", icon: MasterDegreeScroll, variant: "blue" },
   { id: "md", icon: DoctorateDegree, variant: "pink" },
-  { id: "fellowship_uk", icon: RoyalCollegeCrown, variant: "blue" },
-  { id: "fellowship_eu", icon: EuropeanEndoscopy, variant: "pink" },
-  { id: "lecturer", icon: LecturerPodium, variant: "blue" },
-  { id: "consultant", icon: SurgeonConsultant, variant: "pink" },
-  { id: "kasr_al_aini", icon: KasrAlAinyHospital, variant: "blue" },
-  { id: "society", icon: FertilitySociety, variant: "pink" },
+  { id: "gesea", icon: GeseaCertification, variant: "blue" },
+  { id: "esge", icon: EsgeMembership, variant: "pink" },
+  { id: "asrm", icon: AsrmMembership, variant: "blue" },
+  { id: "consultant", icon: ConsultantBadge, variant: "pink" },
+  { id: "laparoscopy_expert", icon: LaparoscopyExpert, variant: "blue" },
+  { id: "care_philosophy", icon: CarePhilosophy, variant: "pink" },
 ];
 
 export async function Credentials() {

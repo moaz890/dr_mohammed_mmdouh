@@ -47,7 +47,12 @@ const PhoneSolidIcon = () => (
   </svg>
 );
 
-const FAQ_ITEM_IDS: FaqItemId[] = ["booking", "painlessBirth", "fibroids", "robotic"];
+const FAQ_ITEM_IDS: FaqItemId[] = [
+  "booking",
+  "painlessBirth",
+  "fibroids",
+  "laparoscopy",
+];
 
 export async function FaqSection({ className = "" }: FaqSectionProps) {
   const t = await getTranslations("home.faqSection");

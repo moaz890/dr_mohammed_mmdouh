@@ -57,7 +57,7 @@ const FibroidsIcon = () => (
   </svg>
 );
 
-const RoboticSurgeryIcon = () => (
+const LaparoscopyIcon = () => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -68,9 +68,11 @@ const RoboticSurgeryIcon = () => (
     aria-hidden="true"
     className="h-5 w-5"
   >
-    <circle cx="12" cy="12" r="3" />
-    <path d="M12 3v6M12 15v6M3 12h6M15 12h6" />
-    <path d="m18 6 3-3m-3 15 3 3M6 6 3 3m3 15-3 3" />
+    <path d="m3 3 4 4" strokeWidth={2.4} />
+    <circle cx="4" cy="4" r="2" />
+    <path d="M6 6l11 11" strokeWidth={2} />
+    <circle cx="19" cy="19" r="2" />
+    <path d="M19 16v-1M22 19h1" />
   </svg>
 );
 
@@ -126,7 +128,7 @@ const ICON_MAP = {
   booking: BookingIcon,
   painlessBirth: PainlessBirthIcon,
   fibroids: FibroidsIcon,
-  robotic: RoboticSurgeryIcon,
+  laparoscopy: LaparoscopyIcon,
 };
 
 interface FaqAccordionProps {
@@ -135,7 +137,7 @@ interface FaqAccordionProps {
 
 export function FaqAccordion({ items }: FaqAccordionProps) {
   // Start with item 4 active (as requested in user's reference snippet)
-  const [openId, setOpenId] = useState<FaqItemId | null>("robotic");
+  const [openId, setOpenId] = useState<FaqItemId | null>("laparoscopy");
 
   const toggle = (id: FaqItemId) => {
     setOpenId((prev) => (prev === id ? null : id));

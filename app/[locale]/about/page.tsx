@@ -6,6 +6,7 @@ import {
   Clinics,
   Credentials,
   Faq,
+  Philosophy,
   ScrollRevealObserver,
   Specialties,
   Tips,
@@ -35,6 +36,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       <Hero />
       <Stats />
       <DoctorBrief showFullCta={false} />
+      <Philosophy />
       <Credentials />
       <Specialties />
       <Tips />

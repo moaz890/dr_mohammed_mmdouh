@@ -1,4 +1,4 @@
-export type FaqItemId = "booking" | "painlessBirth" | "fibroids" | "robotic";
+export type FaqItemId = "booking" | "painlessBirth" | "fibroids" | "laparoscopy";
 
 export interface FaqBranch {
   name: string;

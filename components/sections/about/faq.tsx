@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-const FAQ_IDS = ["booking", "robotic", "specialties", "branches"] as const;
+const FAQ_IDS = ["booking", "laparoscopy", "specialties", "branches"] as const;
 type FaqId = (typeof FAQ_IDS)[number];
 
 /* ── 4 Expressive Icons for FAQ Topics ────────────────────────────────────── */
@@ -26,8 +26,8 @@ const BookingCalendarIcon = () => (
   </svg>
 );
 
-/** 2. Robotic Surgery: Robotic surgical arm articulating tip */
-const RoboticFaqIcon = () => (
+/** 2. Laparoscopy: Advanced Gynecologic Laparoscopy & Trocar */
+const LaparoscopyFaqIcon = () => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
@@ -38,9 +38,11 @@ const RoboticFaqIcon = () => (
     aria-hidden
     className="faq-topic-icon"
   >
-    <circle cx="12" cy="12" r="3" />
-    <path d="M12 3v6M12 15v6M3 12h6M15 12h6" />
-    <path d="m18 6 3-3m-3 15 3 3M6 6 3 3m3 15-3 3" />
+    <path d="m3 3 4 4" strokeWidth={2.4} />
+    <circle cx="4" cy="4" r="2" />
+    <path d="M6 6l11 11" strokeWidth={2} />
+    <circle cx="19" cy="19" r="2" />
+    <path d="M19 16v-1M22 19h1" />
   </svg>
 );
 
@@ -80,7 +82,7 @@ const BranchesFaqIcon = () => (
 
 const faqIcons: Record<FaqId, React.FC> = {
   booking: BookingCalendarIcon,
-  robotic: RoboticFaqIcon,
+  laparoscopy: LaparoscopyFaqIcon,
   specialties: SpecialtyFaqIcon,
   branches: BranchesFaqIcon,
 };

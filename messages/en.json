@@ -11,17 +11,17 @@
       "skipToContent": "Skip to main content"
     },
     "brand": {
-      "logoAlt": "Dr. Saleh Clinics — Premium Woman & Child Care"
+      "logoAlt": "Dr. Saleh Specialty Clinics — Prof. Mohammed Mamdouh Saleh"
     }
   },
   "metadata": {
     "default": {
-      "title": "Dr. Mohamed Saleh Women's & Child Care Center",
-      "description": "A specialized medical center for obstetrics, gynecology, IVF, and pediatrics, equipped with 4D ultrasound.",
-      "keywords": "obstetrics, IVF, gynecology, laparoscopy, fertility, women's health"
+      "title": "Dr. Saleh Specialty Clinics | Prof. Mohammed Mamdouh Saleh - Senior Consultant OB/GYN & IVF",
+      "description": "Dr. Saleh Specialty Clinics — Prof. Mohammed Mamdouh Saleh, Senior Consultant in Obstetrics & Gynecology, Infertility & ICSI, and Advanced Gynecologic Laparoscopy.",
+      "keywords": "Prof. Mohammed Mamdouh Saleh, Dr. Saleh Specialty Clinics, Obstetrics, Gynecology, Infertility, ICSI, IVF, Advanced Laparoscopy, Laparoscopic Hysterectomy, New Cairo, Madinaty"
     },
     "openGraph": {
-      "siteName": "Dr. Mohamed Mamdouh Saleh"
+      "siteName": "Dr. Saleh Specialty Clinics — Prof. Mohammed Mamdouh Saleh"
     }
   },
   "navigation": {
@@ -51,43 +51,43 @@
   },
   "seo": {
     "physician": {
-      "jobTitle": "Senior Obstetric & IVF Consultant",
-      "medicalSpecialty": "Obstetrics and Gynecology"
+      "jobTitle": "Senior Consultant in Obstetrics & Gynecology | Advanced Gynecologic Laparoscopy | Infertility & ICSI",
+      "medicalSpecialty": "Obstetrics, Gynecology, Infertility, ICSI & Advanced Laparoscopy"
     }
   },
   "home": {
     "hero": {
-      "eyebrow": "Premium Woman & Child Care",
-      "doctorName": "Dr. Mohamed Mamdouh Saleh",
+      "eyebrow": "Dr. Saleh Specialty Clinics",
+      "doctorName": "Prof. Mohammed Mamdouh Saleh",
       "title": {
-        "line1": "Lecturer and Senior Obstetric & IVF Consultant",
-        "line2": "Advanced Laparoscopy Surgeon"
+        "line1": "Senior Consultant in Obstetrics & Gynecology",
+        "line2": "Infertility, ICSI & Advanced Gynecologic Laparoscopy"
       },
       "slides": {
         "0": {
-          "description": "A specialized medical center for obstetrics, gynecology, IVF, and pediatrics, equipped with 4D ultrasound.",
-          "imageAlt": "Specialized medical center with advanced women's and children's healthcare technology"
+          "description": "Specialized clinics in obstetrics, gynecology, infertility management, ICSI, and advanced minimally invasive gynecologic surgery.",
+          "imageAlt": "Dr. Saleh Specialty Clinics - Advanced Gynecologic Laparoscopy & Infertility Care"
         },
         "1": {
-          "description": "We provide comprehensive women's healthcare across every stage of life, using the latest medical technology and the highest quality standards to achieve the best outcomes.",
-          "imageAlt": "Comprehensive women's healthcare with premium quality standards"
+          "description": "Delivering individualized, evidence-based care tailored to each patient's medical needs, with careful assessment and clear communication.",
+          "imageAlt": "Patient-centered maternal and reproductive healthcare"
         },
         "2": {
-          "description": "Academic and clinical expertise in infertility treatment, IVF, and precision laparoscopic surgery, with a dedicated focus on patient comfort and quality of care.",
-          "imageAlt": "Expertise in infertility, IVF, and advanced laparoscopic surgery"
+          "description": "Advanced expertise in laparoscopic hysterectomy, complex gynecologic surgery, and assisted reproductive technologies.",
+          "imageAlt": "Advanced minimally invasive surgery and assisted reproductive technologies"
         }
       },
       "cta": {
         "primary": "Book Appointment",
         "secondary": "Contact via WhatsApp",
-        "whatsappMessage": "Hello, I would like to book an appointment at Dr. Mohamed Mamdouh Saleh's center."
+        "whatsappMessage": "Hello, I would like to book an appointment at Dr. Saleh Specialty Clinics with Prof. Mohammed Mamdouh Saleh."
       },
       "trust": {
-        "experience": "10+ Years of Experience",
-        "ultrasound": "Latest Ultrasound Technology",
-        "ivf": "IVF & Fertility Care",
+        "experience": "Senior Certified Consultant",
+        "ultrasound": "Advanced 4D Ultrasound",
+        "ivf": "Infertility & ICSI",
         "laparoscopy": "Advanced Laparoscopy",
-        "care": "Comprehensive Care"
+        "care": "Individualized Care"
       },
       "slider": {
         "ariaLabel": "Medical center image gallery",
@@ -97,47 +97,47 @@
       }
     },
     "stats": {
-      "eyebrow": "Key Statistics",
-      "title": "Milestones Reflecting Clinical Excellence",
+      "eyebrow": "Clinical Excellence",
+      "title": "Milestones Reflecting Medical Quality & Care",
       "items": {
         "experience": {
-          "label": "Years of Experience",
-          "description": "In Advanced Laparoscopy & OB/GYN"
+          "label": "Senior Consultant",
+          "description": "Advanced Gynecologic Laparoscopy, Infertility & ICSI"
         },
         "surgeries": {
           "label": "Successful Surgeries",
-          "description": "Adhering to highest global safety standards"
+          "description": "Minimally invasive laparoscopy with same-day recovery"
         },
         "patients": {
           "label": "Happy Patients",
-          "description": "Comprehensive and compassionate maternal care"
+          "description": "Patient-centered care tailored to each case"
         },
         "rating": {
           "label": "Patient Rating",
-          "description": "Based on thousands of verified reviews"
+          "description": "Based on verified patient reviews and trust"
         }
       }
     },
     "doctorBrief": {
       "eyebrow": "About the Physician",
-      "heading": "Expert in Advanced Gynecological Laparoscopy & IVF",
-      "doctorName": "Dr. Mohamed Mamdouh Saleh",
-      "doctorTitle": "Lecturer & Senior Consultant in Obstetrics, Gynecology & Laparoscopy - Cairo University Hospitals (Kasr Al-Ainy)",
-      "p1": "Dr. Mohamed Mamdouh Saleh graduated with honors from the Faculty of Medicine, Cairo University (Kasr Al-Ainy), advancing through his academic residency and clinical fellowship to achieve both Master's and Doctoral (MD) degrees with distinction. He holds the prestigious Fellowship of the Royal College of Obstetricians and Gynaecologists (MRCOG, London) and the European Diploma in Gynecological Laparoscopy (GESEA).",
-      "p2": "With over two decades of surgical excellence, Dr. Saleh has conducted thousands of advanced laparoscopic surgeries, organ-preserving myomectomies, and complex endometriosis reconstructions. His patient-first philosophy integrates state-of-the-art IVF protocols and compassionate maternal care, ensuring maximum safety, comfort, and positive outcomes.",
+      "heading": "Senior Consultant in Obstetrics & Gynecology, Infertility & ICSI",
+      "doctorName": "Prof. Mohammed Mamdouh Saleh",
+      "doctorTitle": "Senior Consultant in Obstetrics & Gynecology | Advanced Gynecologic Laparoscopy | Infertility & ICSI",
+      "p1": "Prof. Mohammed Mamdouh Saleh is an obstetrics and gynecology specialist with clinical interests in infertility management, assisted reproductive technologies, and advanced minimally invasive gynecologic surgery.",
+      "p2": "His practice combines clinical care, surgical expertise, and a commitment to continuous professional development. He aims to provide individualized, evidence-based care tailored to each patient’s medical needs, with careful assessment and clear communication throughout the treatment journey.",
       "credentials": {
-        "c1": "Lecturer & Senior Consultant of OB/GYN - Cairo University Hospitals (Kasr Al-Ainy)",
-        "c2": "Fellow of the Royal College of Obstetricians and Gynaecologists (MRCOG) – London, UK",
-        "c3": "European Diploma in Gynecological Laparoscopy (GESEA) - European Society",
-        "c4": "Senior Fertility & Advanced IVF Specialist with High Success Rates"
+        "c1": "Doctorate (MD) & Master's Degree in Obstetrics, Gynecology & ICSI",
+        "c2": "GESEA Level 2 Certified in Minimally Invasive Gynaecological Surgery (MIGS)",
+        "c3": "Member of the European Society for Gynaecological Endoscopy (ESGE)",
+        "c4": "Member of the American Society for Reproductive Medicine (ASRM)"
       },
       "cta": {
-        "moreAbout": "View Full Academic Profile",
+        "moreAbout": "View Full Profile & Credentials",
         "bookConsultation": "Book a Consultation"
       },
       "badge": {
-        "experience": "20+ Years Clinical Excellence",
-        "trust": "Evidence-Based Safe Care"
+        "experience": "Senior Certified Consultant",
+        "trust": "Evidence-Based Individualized Care"
       }
     },
     "servicesSection": {
@@ -210,9 +210,9 @@
       }
     },
     "visionSection": {
-      "eyebrow": "Medical Excellence & Innovation",
-      "title": "Striving for Every Innovation & Medical Advancement",
-      "description": "Dr. Mohamed Mamdouh Saleh is constantly committed to adopting the latest advancements in obstetrics and gynecology, delivering world-class therapeutic care on par with leading international medical centers.",
+      "eyebrow": "Excellence & Continuous Development",
+      "title": "Adopting the Highest Standards of Global Medical Care",
+      "description": "Prof. Mohammed Mamdouh Saleh integrates clinical acumen, surgical expertise, and a commitment to continuous professional development to deliver world-class patient care.",
       "cards": {
         "painlessBirth": {
           "title": "Painless Delivery",
@@ -310,11 +310,11 @@
         },
         "fibroids": {
           "question": "Can uterine fibroids be treated without a hysterectomy?",
-          "answer": "With state-of-the-art operative techniques and Dr. Mohamed Saleh's extensive expertise in advanced laparoscopy, uterine fibroids can almost always be excised with extreme precision while completely preserving the uterus and the patient's future fertility."
+          "answer": "With advanced minimally invasive laparoscopic techniques and Prof. Mohammed Mamdouh Saleh's specialized expertise, uterine fibroids can almost always be excised with extreme precision while completely preserving the uterus and the patient's future fertility."
         },
-        "robotic": {
-          "question": "What are the latest techniques in gynecological endoscopy?",
-          "answer": "Robotic-assisted surgery and high-definition 3D laparoscopy represent the pinnacle of modern surgical innovation, enabling complex interventions through millimeter incisions with unmatched precision and same-day discharge. Dr. Mohamed Saleh is recognized as a pioneer in these advanced surgical modalities."
+        "laparoscopy": {
+          "question": "What are the advantages of advanced gynecological laparoscopy and laparoscopic hysterectomy?",
+          "answer": "Advanced gynecological laparoscopy allows complex surgical procedures, including laparoscopic hysterectomy and fibroid removal, to be performed through millimeter-sized incisions with minimal discomfort and same-day discharge. Prof. Mohammed Mamdouh Saleh is certified by the European Society of Gynaecological Endoscopy (GESEA Level 2 MIGS)."
         }
       }
     },
@@ -362,75 +362,101 @@
     }
   },
   "about": {
+    "philosophy": {
+      "eyebrow": "Philosophy of Care",
+      "title": "Compassionate, Evidence-Based Healthcare Putting You First",
+      "subtitle": "Careful assessment, transparent communication, and patient-centered decision making throughout your healing journey",
+      "p1": "Prof. Mohammed Mamdouh Saleh believes that excellent medical care goes beyond diagnosis and treatment. It requires listening to patients, explaining available options, supporting informed decision-making, and providing compassionate care throughout every stage of treatment.",
+      "p2": "Through Dr. Saleh Specialty Clinics, his goal is to deliver a patient-centered experience that combines medical expertise, clear communication, attention to detail, and a strong commitment to patient safety and quality of care.",
+      "clinicName": "Dr. Saleh Specialty Clinics",
+      "pillars": {
+        "listening": {
+          "title": "Attentive Listening & Empathy",
+          "desc": "Taking dedicated time to listen thoroughly and understand every patient's unique symptoms, expectations, and concerns."
+        },
+        "decision": {
+          "title": "Shared Decision-Making",
+          "desc": "Clearly explaining clinical options and empowering patients to make informed choices with complete confidence."
+        },
+        "support": {
+          "title": "Continuous Medical & Human Support",
+          "desc": "Standing alongside each patient with continuous clinical guidance and empathy throughout every step of treatment."
+        },
+        "safety": {
+          "title": "Uncompromised Patient Safety",
+          "desc": "Rigorous adherence to global clinical safety protocols and state-of-the-art evidence-based medical standards."
+        }
+      }
+    },
     "credentials": {
-      "eyebrow": "Academic & Clinical Track Record",
-      "title": "Academic Hierarchy & Degrees",
-      "subtitle": "Distinguished credentials from premier medical institutions in Egypt, the UK, and Europe",
+      "eyebrow": "Academic Track Record & Certifications",
+      "title": "Academic Degrees, Fellowships & Certifications",
+      "subtitle": "Prestigious international credentials and board certifications in advanced gynecologic laparoscopy, infertility, and ICSI",
       "verified": "Verified Credential",
       "items": {
-        "mbbs": {
-          "title": "Bachelor of Medicine & Surgery (MBBS)",
-          "subtitle": "Faculty of Medicine, Cairo University (Kasr Al-Ainy) with First-Class Honors"
+        "msc": {
+          "title": "Master's Degree in Obstetrics & Gynecology (M.Sc.)",
+          "subtitle": "Advanced clinical and academic training in women's health, obstetrics, and gynecological surgery"
         },
         "md": {
-          "title": "Medical Doctorate (MD) in OB/GYN",
-          "subtitle": "Advanced doctoral dissertation in minimally invasive surgery, infertility, and IVF"
+          "title": "Doctorate (MD) in Obstetrics, Gynecology & ICSI",
+          "subtitle": "Highest specialized doctorate degree in assisted reproductive technologies and advanced gynecologic care"
         },
-        "fellowship_uk": {
-          "title": "Fellowship of the Royal College (MRCOG)",
-          "subtitle": "London, United Kingdom — Obstetrics, Gynecology & Fetal Medicine"
+        "gesea": {
+          "title": "GESEA Level 2 MIGS Board Certification",
+          "subtitle": "Certified in Minimally Invasive Gynaecological Surgery by the European Society of Gynaecological Endoscopy"
         },
-        "fellowship_eu": {
-          "title": "European Endoscopy Diploma (GESEA)",
-          "subtitle": "European Society of Gynaecological Endoscopy — Advanced Pelvic Surgery"
+        "esge": {
+          "title": "Member of European Society for Gynaecological Endoscopy (ESGE)",
+          "subtitle": "Active professional membership adhering to cutting-edge European minimally invasive surgical standards"
         },
-        "lecturer": {
-          "title": "Lecturer of Obstetrics & Gynecology",
-          "subtitle": "Faculty member supervising residency training and postgraduate researchers"
+        "asrm": {
+          "title": "Member of American Society for Reproductive Medicine (ASRM)",
+          "subtitle": "Professional membership in the world's leading society for reproductive medicine and infertility science"
         },
         "consultant": {
-          "title": "Senior Consultant in Laparoscopy & IVF",
-          "subtitle": "Over 10 years of clinical mastery and 5,000+ successful operations"
+          "title": "Senior Consultant in OB/GYN, Infertility & ICSI",
+          "subtitle": "Comprehensive infertility evaluation and personalized treatment planning with assisted reproductive technologies"
         },
-        "kasr_al_aini": {
-          "title": "Consultant at Cairo University Hospitals",
-          "subtitle": "IVF & Infertility Unit and Day-Surgery Department"
+        "laparoscopy_expert": {
+          "title": "Advanced Gynecologic Laparoscopy Expert",
+          "subtitle": "Extensive expertise in laparoscopic hysterectomy and the surgical management of complex conditions"
         },
-        "society": {
-          "title": "Member of Egyptian Fertility Society (EFSS)",
-          "subtitle": "Regular keynote speaker and faculty at international medical summits"
+        "care_philosophy": {
+          "title": "Compassionate & Evidence-Based Clinical Care",
+          "subtitle": "Combining clinical acumen, surgical precision, transparent communication, and patient-centered decision making"
         }
       }
     },
     "specialties": {
-      "eyebrow": "Clinical Expertise",
-      "title": "Specialties & Focus Areas",
-      "subtitle": "Precision-driven surgical and therapeutic procedures adhering to the highest global standards",
-      "readMore": "Read More",
+      "eyebrow": "Areas of Expertise",
+      "title": "Areas of Clinical & Surgical Expertise",
+      "subtitle": "Specialized clinical and surgical care based on thorough evaluation and individualized treatment plans tailored to each case",
+      "readMore": "Learn More",
       "items": {
-        "robotic": {
-          "title": "Robotic Assisted Surgery",
-          "description": "Unrivaled surgical precision and minimal tissue trauma for tumors and pelvic reconstruction."
-        },
         "laparoscopy": {
-          "title": "Advanced Laparoscopy",
-          "description": "Ovarian cystectomy, adhesiolysis, and infertility investigations through millimeter-sized incisions."
-        },
-        "fibroids": {
-          "title": "Uterine Fibroid Management",
-          "description": "Innovative organ-preserving myomectomy techniques that safeguard reproductive potential."
-        },
-        "endometriosis": {
-          "title": "Endometriosis Care Center",
-          "description": "Multidisciplinary excision protocols resolving chronic pelvic pain and associated infertility."
+          "title": "Advanced Gynecologic Laparoscopy",
+          "description": "Including laparoscopic hysterectomy and the surgical management of complex gynecologic conditions."
         },
         "hysterectomy": {
           "title": "Laparoscopic Hysterectomy",
-          "description": "Total or subtotal laparoscopic hysterectomy with minimal recovery time and same-day discharge."
+          "description": "Total and subtotal laparoscopic hysterectomy with minimal invasion, rapid recovery, and same-day discharge."
         },
-        "delivery": {
-          "title": "Painless Childbirth & Delivery",
-          "description": "Advanced epidural pain relief and PCA systems with continuous fetal well-being telemetry."
+        "infertility_icsi": {
+          "title": "Infertility & ICSI",
+          "description": "Evaluation of infertility and individualized treatment planning, including assisted reproductive technologies."
+        },
+        "obstetrics_gynecology": {
+          "title": "Obstetrics & Gynecology",
+          "description": "Comprehensive assessment and management of women’s health conditions throughout different stages of life."
+        },
+        "pregnancy_childbirth": {
+          "title": "Pregnancy & Childbirth",
+          "description": "Antenatal care, assessment of pregnancies requiring specialized follow-up, and individualized delivery planning."
+        },
+        "specialized_surgery": {
+          "title": "Specialized Gynecologic Surgery",
+          "description": "Evaluation and surgical management of gynecologic conditions, with careful consideration of the most appropriate treatment options."
         }
       }
     },
@@ -489,9 +515,9 @@
           "q": "How can I book an appointment or consultation?",
           "a": "You can book directly via phone with either branch, message our reception on WhatsApp, or submit an online request. Our team confirms all slots within minutes."
         },
-        "robotic": {
-          "q": "What advantages does robotic surgery offer over conventional open surgery?",
-          "a": "Robotic surgery provides 10x magnified 3D visualization and wristed instrumentation with greater dexterity than the human hand, reducing bleeding, pain, and hospital stay to under 24 hours."
+        "laparoscopy": {
+          "q": "What advantages does advanced gynecological laparoscopy and laparoscopic hysterectomy offer?",
+          "a": "Advanced gynecological laparoscopy enables delicate and complex procedures, including laparoscopic hysterectomy and fibroid removal, to be performed through millimeter incisions with minimal pain, rapid healing, and same-day discharge under the care of Prof. Mohammed Mamdouh Saleh, certified in GESEA Level 2 MIGS."
         },
         "specialties": {
           "q": "Do you handle high-risk pregnancies and complex recurrent miscarriages?",
@@ -528,7 +554,7 @@
       "phone_label": "Call Us Now",
       "phone": "+201050600032",
       "whatsapp_label": "WhatsApp Consultation",
-      "whatsappMessage": "Hello Dr. Mohamed Saleh, I would like to inquire about booking an appointment."
+      "whatsappMessage": "Hello Prof. Mohammed Saleh, I would like to inquire and book a consultation at Dr. Saleh Specialty Clinics."
     }
   },
   "footer": {
@@ -540,10 +566,10 @@
       "whatsappBtn": "Instant WhatsApp Chat"
     },
     "brand": {
-      "doctorName": "Dr. Mohamed Mamdouh Saleh",
-      "doctorTitle": "Lecturer & Senior Consultant in Obstetrics, Gynecology, IVF & Advanced Laparoscopy - Kasr Al-Ainy",
-      "tagline": "State-of-the-art medical excellence and compassionate healthcare for women and children, utilizing advanced 3D laparoscopy and painless birth protocols.",
-      "badge": "Certified Senior Consultant - International Fellowships"
+      "doctorName": "Prof. Mohammed Mamdouh Saleh",
+      "doctorTitle": "Senior Consultant in Obstetrics & Gynecology | Advanced Gynecologic Laparoscopy | Infertility & ICSI",
+      "tagline": "Dr. Saleh Specialty Clinics — A patient-centered experience combining medical expertise, clear communication, attention to detail, and a strong commitment to patient safety and quality of care.",
+      "badge": "GESEA Level 2 MIGS Certified · Member of ASRM & ESGE"
     },
     "sections": {
       "services": "Specialized Services",
@@ -587,14 +613,14 @@
       "note": "Consultations are strictly by prior appointment to guarantee complete privacy and zero waiting time."
     },
     "disclaimer": "Medical Disclaimer: The medical information published on this website is for general health awareness and education only and is not a substitute for professional clinical examination, diagnosis, or personalized medical care.",
-    "copyright": "All rights reserved © {year} Dr. Mohamed Mamdouh Saleh Center.",
+    "copyright": "All rights reserved © {year} Dr. Saleh Specialty Clinics — Prof. Mohammed Mamdouh Saleh.",
     "craftedWith": "Excellence in Healthcare for Mother & Child",
     "backToTop": "Top"
   },
   "clinicsPage": {
     "badge": "Official Clinic Centers",
-    "title": "Dr. Mohamed Mamdouh Saleh Clinic Locations & Contact",
-    "subtitle": "We look forward to welcoming you with the highest standard of personalized medical care for women and children at our fully equipped centers in New Cairo and Madinaty.",
+    "title": "Dr. Saleh Specialty Clinics Locations & Contact",
+    "subtitle": "We look forward to welcoming you with specialized medical care at Dr. Saleh Specialty Clinics under the care of Prof. Mohammed Mamdouh Saleh in New Cairo and Madinaty.",
     "features": {
       "reservation": "Private Consultations by Prior Booking",
       "sonar": "Advanced High-Definition 4D Fetal Ultrasound",

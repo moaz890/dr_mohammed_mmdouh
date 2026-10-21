@@ -92,6 +92,167 @@
   line-height: 1.8;
 }
 
+/* ── 0. PHILOSOPHY OF CARE (Manifesto & 4 Medical Pillars) ──────────────── */
+.philosophy-section {
+  width: 100%;
+  padding-block: 5.5rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--brand-pink-muted) 45%, var(--background)),
+    var(--background)
+  );
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+.philosophy-manifesto-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--brand-pink) 25%, var(--border));
+  border-radius: calc(var(--radius) * 2);
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: 0 16px 40px -15px color-mix(in srgb, var(--brand-pink) 15%, transparent);
+  margin-bottom: 3rem;
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+
+.philosophy-manifesto-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 50px -15px color-mix(in srgb, var(--brand-pink) 22%, transparent);
+}
+
+.philosophy-manifesto-quote-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  opacity: 0.8;
+}
+
+[dir="rtl"] .philosophy-manifesto-quote-icon {
+  right: auto;
+  left: 1.5rem;
+}
+
+.philosophy-manifesto-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.philosophy-manifesto-lead {
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.8;
+  color: var(--foreground);
+}
+
+.philosophy-manifesto-secondary {
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.philosophy-manifesto-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+.philosophy-clinic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brand-pink);
+  background: var(--brand-pink-muted);
+  border: 1px solid color-mix(in srgb, var(--brand-pink) 30%, transparent);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+}
+
+.philosophy-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1.5rem;
+}
+
+.philosophy-pillar-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  border-radius: calc(var(--radius) * 1.6);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.philosophy-pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -10px color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  border-color: color-mix(in srgb, var(--brand-blue) 35%, transparent);
+}
+
+.philosophy-pillar-card--pink:hover {
+  box-shadow: 0 16px 32px -10px color-mix(in srgb, var(--brand-pink) 18%, transparent);
+  border-color: color-mix(in srgb, var(--brand-pink) 35%, transparent);
+}
+
+.philosophy-pillar-icon-box {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: calc(var(--radius) * 1.3);
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s ease;
+}
+
+.philosophy-pillar-card:hover .philosophy-pillar-icon-box {
+  transform: scale(1.1);
+}
+
+.philosophy-pillar-icon-box--blue {
+  background: linear-gradient(
+    135deg,
+    var(--brand-blue-muted),
+    color-mix(in srgb, var(--brand-blue) 20%, white)
+  );
+  color: var(--brand-blue);
+}
+
+.philosophy-pillar-icon-box--pink {
+  background: linear-gradient(
+    135deg,
+    var(--brand-pink-muted),
+    color-mix(in srgb, var(--brand-pink) 20%, white)
+  );
+  color: var(--brand-pink);
+}
+
+.philosophy-pillar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.4;
+}
+
+.philosophy-pillar-desc {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  line-height: 1.65;
+}
+
 /* ── 1. CREDENTIALS & ACADEMIC HIERARCHY ──────────────────────────────────── */
 .credentials-section {
   width: 100%;
