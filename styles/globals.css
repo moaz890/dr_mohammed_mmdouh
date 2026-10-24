@@ -15,6 +15,7 @@
 @import "./cta.css";
 @import "./social.css";
 @import "./footer.css";
+@import "./articles.css";
 
 @custom-variant dark (&:is(.dark *));
 

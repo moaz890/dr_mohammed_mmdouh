@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
-import { routePaths } from "@/config/routes";
 import { Link } from "@/i18n/navigation";
 
 /* Arrow icon pointing to start (RTL-ready) */
@@ -26,22 +25,22 @@ const ARTICLES = [
   {
     id: "ivf",
     categoryKey: "articles.items.ivf.category",
-    href: routePaths.articles,
-    imageSrc: "/hero.jpeg",
+    href: "/articles/icsi-ivf-journey",
+    imageSrc: "/services/prp.jpeg",
     accent: "blue",
   },
   {
     id: "laparoscopy",
     categoryKey: "articles.items.laparoscopy.category",
-    href: routePaths.articles,
-    imageSrc: "/saleh-hero-2.jpeg",
+    href: "/articles/advanced-laparoscopy",
+    imageSrc: "/services/laparoscopy.jpeg",
     accent: "pink",
   },
   {
     id: "prenatal",
     categoryKey: "articles.items.prenatal.category",
-    href: routePaths.articles,
-    imageSrc: "/saleh-hero-3.jpeg",
+    href: "/articles/high-risk-pregnancy",
+    imageSrc: "/services/c-section.jpeg",
     accent: "blue",
   },
 ] as const;

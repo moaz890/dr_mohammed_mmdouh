@@ -1,0 +1,748 @@
+/* ==========================================================================
+   ARTICLES & PATIENT EDUCATION HUB STYLES
+   Dr. Mohamed Mamdouh Saleh Specialty Clinics
+   ========================================================================== */
+
+/* ── 1. Hub Hero & Header ───────────────────────────────────────────────── */
+.articles-hub-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 3.5rem 1rem 2.5rem;
+  background: linear-gradient(
+    180deg,
+    var(--brand-blue-muted) 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  border-bottom: 1px solid rgba(90, 159, 185, 0.15);
+}
+
+.dark .articles-hub-hero {
+  background: linear-gradient(
+    180deg,
+    rgba(90, 159, 185, 0.08) 0%,
+    rgba(15, 23, 42, 0.6) 100%
+  );
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.articles-hub-container {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.articles-hub-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--brand-pink);
+  background: var(--brand-pink-muted);
+  border: 1px solid rgba(221, 107, 144, 0.2);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.articles-hub-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.articles-hub-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  max-width: 48rem;
+}
+
+/* ── 2. Category Filters ─────────────────────────────────────────────────── */
+.articles-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.articles-category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--background);
+  color: var(--foreground);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.dark .articles-category-pill {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.articles-category-pill:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+  transform: translateY(-1px);
+}
+
+.articles-category-pill.active {
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(90, 159, 185, 0.35);
+}
+
+/* ── 3. Featured Article Card ────────────────────────────────────────────── */
+.article-featured-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  background: var(--card);
+  border: 1px solid rgba(90, 159, 185, 0.2);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  margin-bottom: 3rem;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .article-featured-card {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+  }
+}
+
+.article-featured-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(90, 159, 185, 0.15);
+  border-color: var(--brand-blue);
+}
+
+.article-featured-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 18rem;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .article-featured-image-wrapper {
+    height: 100%;
+    min-height: 22rem;
+  }
+}
+
+.article-featured-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.article-featured-card:hover .article-featured-image {
+  transform: scale(1.04);
+}
+
+.article-featured-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── 4. Article Grid Cards ──────────────────────────────────────────────── */
+.articles-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .articles-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .articles-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.dark .article-card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-blue-light);
+  box-shadow: 0 16px 32px rgba(90, 159, 185, 0.12);
+}
+
+.article-card-image-box {
+  position: relative;
+  width: 100%;
+  height: 13rem;
+  overflow: hidden;
+  background: var(--muted);
+}
+
+.article-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.article-card:hover .article-card-image {
+  transform: scale(1.05);
+}
+
+.article-card-badge-overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--brand-blue);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+[dir="rtl"] .article-card-badge-overlay {
+  right: auto;
+  left: 1rem;
+}
+
+.article-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.article-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.article-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.article-card:hover .article-card-title {
+  color: var(--brand-blue);
+}
+
+.article-card-excerpt {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.article-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brand-pink);
+}
+
+/* ── 5. Single Article Reader Page ───────────────────────────────────────── */
+.article-reader-container {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.article-reader-header {
+  margin-bottom: 2.5rem;
+}
+
+.article-reader-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--brand-blue);
+  background: var(--brand-blue-muted);
+  border: 1px solid rgba(90, 159, 185, 0.25);
+  margin-bottom: 1rem;
+}
+
+.article-reader-title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.article-reader-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin-bottom: 1.75rem;
+}
+
+.article-author-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--card);
+  border: 1px solid rgba(90, 159, 185, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.article-author-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 2px solid var(--brand-blue);
+  flex-shrink: 0;
+}
+
+.article-author-name {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.article-author-title {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  line-height: 1.4;
+}
+
+/* ── 6. Key Takeaways Box ────────────────────────────────────────────────── */
+.article-takeaways-box {
+  background: linear-gradient(
+    135deg,
+    rgba(90, 159, 185, 0.08) 0%,
+    rgba(221, 107, 144, 0.08) 100%
+  );
+  border: 1px solid rgba(90, 159, 185, 0.3);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.article-takeaways-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--brand-blue);
+  margin-bottom: 1rem;
+}
+
+.article-takeaways-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.article-takeaways-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+.article-takeaways-bullet {
+  color: var(--brand-pink);
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* ── 7. Patient Fears vs Reality Section ─────────────────────────────────── */
+.article-fears-section {
+  margin: 3rem 0;
+}
+
+.article-fears-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.article-fears-subtitle {
+  font-size: 0.9375rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+}
+
+.article-fears-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+@media (min-width: 768px) {
+  .article-fears-card {
+    grid-template-columns: 1fr 1.35fr;
+  }
+}
+
+.article-fear-side {
+  padding: 1.5rem;
+  background: rgba(239, 68, 68, 0.05);
+  border-inline-end: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+.article-fear-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.12);
+  margin-bottom: 0.75rem;
+}
+
+.article-fear-text {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #991b1b;
+}
+
+.dark .article-fear-text {
+  color: #fca5a5;
+}
+
+.article-reality-side {
+  padding: 1.5rem;
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.article-reality-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.15);
+  margin-bottom: 0.75rem;
+}
+
+.article-reality-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.article-source-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-blue);
+  background: var(--brand-blue-muted);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+/* ── 8. Patient Advice & Tips Cards ─────────────────────────────────────── */
+.article-advice-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .article-advice-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.article-advice-card {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.article-advice-card.type-do {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.03);
+}
+
+.article-advice-card.type-dont {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.03);
+}
+
+.article-advice-card.type-tip {
+  border-color: rgba(90, 159, 185, 0.3);
+  background: rgba(90, 159, 185, 0.03);
+}
+
+.article-advice-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.article-advice-desc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+}
+
+/* ── 9. Warning Signs (Red Flags) Box ───────────────────────────────────── */
+.article-warning-box {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  margin: 2.5rem 0;
+}
+
+.article-warning-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+.article-warning-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-warning-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #7f1d1d;
+}
+
+.dark .article-warning-item {
+  color: #fca5a5;
+}
+
+/* ── 10. References & Verified Sources Box ──────────────────────────────── */
+.article-references-box {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  margin: 2.5rem 0;
+}
+
+.article-references-header {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.article-reference-card {
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-reference-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.article-reference-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--brand-blue);
+}
+
+.article-reference-meta {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  margin-top: 0.25rem;
+}
+
+/* ── 11. Interactive FAQ Accordion ───────────────────────────────────────── */
+.article-faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.article-faq-summary {
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--foreground);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.article-faq-content {
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+/* ── 12. Consultation CTA Banner ─────────────────────────────────────────── */
+.article-cta-banner {
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-pink) 100%);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 3.5rem 0 2rem;
+  box-shadow: 0 16px 36px rgba(90, 159, 185, 0.25);
+}
+
+.article-cta-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
+.article-cta-subtitle {
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  opacity: 0.95;
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+}
+
+.article-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.article-cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: var(--brand-blue);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.article-cta-btn-primary:hover {
+  transform: translateY(-2px);
+  background: #f8fafc;
+}
+
+.article-cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+}
+
+.article-cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
