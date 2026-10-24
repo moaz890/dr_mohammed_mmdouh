@@ -1,13 +1,14 @@
 export const brand = {
   logo: {
-    src: "/dr-saleh.png",
-    width: 1024,
+    src: "/clinic-logo.jpeg",
+    width: 1536,
     height: 1024,
   },
   heroSlides: [
-    { src: "/hero.jpeg", width: 1792, height: 2400 },
-    { src: "/saleh-hero-2.jpeg", width: 1792, height: 2400 },
-    { src: "/saleh-hero-3.jpeg", width: 1792, height: 2400 },
+    { src: "/saleh-hero-4.jpeg", width: 3712, height: 5568 },
+    { src: "/saleh-hero-5.JPEG", width: 3712, height: 5568 },
+    { src: "/saleh-hero-6.jpeg", width: 3264, height: 5275 },
+    { src: "/saleh-hero-7.jpeg", width: 3245, height: 4006 },
   ] as const,
   colors: {
     /** Sampled from logo wordmark / child icon */
