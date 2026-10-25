@@ -2,6 +2,8 @@
 
 import { useCallback, useState } from "react";
 
+import { useIsRtl } from "@/hooks/use-direction";
+
 import { HeroBackground } from "./hero-background";
 import { HeroContent } from "./hero-content";
 import { HeroSlider } from "./hero-slider";
@@ -11,13 +13,17 @@ import type { HeroContentProps } from "./types";
 type HeroShellProps = HeroContentProps;
 
 export function HeroShell(props: HeroShellProps) {
+  const isRtl = useIsRtl();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const handleSelect = useCallback((index: number) => {
     setSelectedIndex(index);
   }, []);
 
   return (
-    <section className="relative overflow-hidden border-b border-border/50">
+    <section
+      dir={isRtl ? "rtl" : "ltr"}
+      className="relative overflow-hidden border-b border-border/50"
+    >
       <HeroBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16 xl:py-20">

@@ -213,7 +213,7 @@ export function HeroSlider({
             <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--brand-blue)] to-[var(--brand-blue-light)] text-white shadow-md">
               <Sparkles className="size-5" />
             </div>
-            <div className="text-start rtl:text-end">
+            <div className="text-start">
               <p className="text-xs font-bold text-[var(--brand-pink)]">
                 رعاية طبية فائقة
               </p>

@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 
+import { useIsRtl } from "@/hooks/use-direction";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { getMotionSafeTransition } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -26,6 +27,7 @@ export function HeroContent({
   whatsappUrl,
   trustItems,
 }: HeroContentSectionProps) {
+  const isRtl = useIsRtl();
   const prefersReducedMotion = useReducedMotion();
   const transition = getMotionSafeTransition(prefersReducedMotion, {
     duration: 0.55,
@@ -51,10 +53,10 @@ export function HeroContent({
 
   return (
     <motion.div
+      dir={isRtl ? "rtl" : "ltr"}
       className={cn(
-        "flex flex-col gap-6 lg:gap-7",
-        "items-start text-start",
-        "rtl:items-end rtl:text-end",
+        "flex flex-col gap-6 lg:gap-7 items-start text-start",
+        isRtl ? "text-right" : "text-left",
       )}
       initial="hidden"
       animate="visible"
