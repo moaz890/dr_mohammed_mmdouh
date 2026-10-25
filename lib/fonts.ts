@@ -1,13 +1,18 @@
-import { Inter, JetBrains_Mono, Noto_Sans_Arabic } from "next/font/google";
+import {
+  IBM_Plex_Sans_Arabic,
+  JetBrains_Mono,
+  Plus_Jakarta_Sans,
+} from "next/font/google";
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const notoSansArabic = Noto_Sans_Arabic({
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-arabic",
   display: "swap",
 });
@@ -18,9 +23,9 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-export const fontVariables = `${inter.variable} ${notoSansArabic.variable} ${jetbrainsMono.variable}`;
+export const fontVariables = `${plusJakartaSans.variable} ${ibmPlexSansArabic.variable} ${jetbrainsMono.variable}`;
 
 export const fontClassNames = {
-  latin: inter.className,
-  arabic: notoSansArabic.className,
+  latin: plusJakartaSans.className,
+  arabic: ibmPlexSansArabic.className,
 };
