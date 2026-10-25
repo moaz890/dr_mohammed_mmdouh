@@ -2,11 +2,14 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 
+import { DirectionSync } from "@/components/common/direction-sync";
 import { SkipLink } from "@/components/common/skip-link";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import type { AppLocale } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 import { AppProviders } from "@/providers/app-providers";
+import { getDirection } from "@/utils/locale";
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -26,11 +29,13 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const direction = getDirection(locale as AppLocale);
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <AppProviders>
-        <div className="flex min-h-full flex-col">
+        <DirectionSync />
+        <div dir={direction} className="flex min-h-full flex-col">
           <SkipLink />
           <SiteHeader />
           {children}

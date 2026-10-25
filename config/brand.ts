@@ -1,6 +1,6 @@
 export const brand = {
   logo: {
-    src: "/clinic-logo.jpeg",
+    src: "/logo_transparent_clean.png",
     width: 1536,
     height: 1024,
   },

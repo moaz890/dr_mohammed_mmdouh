@@ -6,7 +6,7 @@ const DOCTOR_AUTHOR_AR = {
   name: "أ.د. محمد ممدوح صالح",
   title: "أستاذ واستشاري أمراض النساء والتوليد وجراحة المناظير والحقن المجهري",
   credentials: "دكتوراه النساء والتوليد - كلية الطب | معتمد دولياً GESEA Level 2 MIGS",
-  avatar: "/clinic-logo.jpeg",
+  avatar: "/logo_transparent_clean.png",
 };
 
 const DOCTOR_AUTHOR_EN = {
@@ -15,7 +15,7 @@ const DOCTOR_AUTHOR_EN = {
     "Professor & Consultant of Obstetrics, Gynecology, Minimally Invasive Surgery & IVF",
   credentials:
     "Ph.D. in OB/GYN — Faculty of Medicine | Certified GESEA Level 2 MIGS European Endoscopy",
-  avatar: "/clinic-logo.jpeg",
+  avatar: "/logo_transparent_clean.png",
 };
 
 export const ARTICLES_DATA: Record<AppLocale, Record<string, ArticleContent>> = {

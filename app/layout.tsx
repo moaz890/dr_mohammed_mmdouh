@@ -10,8 +10,8 @@ import { getDirection, getLocaleFontClass } from "@/utils/locale";
 
 export const metadata: Metadata = {
   icons: {
-    icon: [{ url: brand.logo.src, type: "image/jpeg" }],
-    apple: [{ url: brand.logo.src, type: "image/jpeg" }],
+    icon: [{ url: brand.logo.src, type: "image/png" }],
+    apple: [{ url: brand.logo.src, type: "image/png" }],
   },
 };
 

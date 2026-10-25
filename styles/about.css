@@ -14,7 +14,7 @@
 /* ── Global Typography & Layout Defaults ──────────────────────────────────── */
 .about-page-main,
 .reveal-section {
-  font-family: var(--font-arabic), "Cairo", "Tajawal", system-ui, sans-serif;
+  font-family: inherit;
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
 }
