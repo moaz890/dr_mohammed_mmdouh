@@ -64,14 +64,14 @@ const BRANCHES: Branch[] = [
     accent: "blue",
     mapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.518!2d31.4533918!3d30.0010579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145823d0f4de36bb%3A0x41df343c0782ea11!2z2KfZhNiv2YPYqtmI2LEg2YXYrdmF2K8g2YXYrdiv2K3YtCDYtdin2YTYrQ!5e0!3m2!1sar!2seg",
-    mapUrl: "https://maps.app.goo.gl/VdrbahguBBgAXdp16",
+    mapUrl: "https://maps.app.goo.gl/vPkmz1cYdyjekeRE8?g_st=ic",
   },
   {
     id: "madinaty",
     accent: "pink",
     mapSrc:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.78!2d31.62!3d30.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDA2JzAwLjAiTiAzMcKwMzcnMTIuMCJF!5e0!3m2!1sar!2seg!4v1769262477479!5m2!1sar!2seg",
-    mapUrl: "https://maps.google.com/?q=Madinaty+Medical+Center",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.78!2d31.62!3d30.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457f5fa861933fd%3A0x6898e38080aec49!2sMedical+Center+1+-+Madinaty+South+Sector!5e0!3m2!1sar!2seg",
+    mapUrl: "https://maps.app.goo.gl/qNRDnm9gEdSfFQ4KA?g_st=ic",
   },
 ];
 

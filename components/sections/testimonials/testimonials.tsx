@@ -1,6 +1,32 @@
 import { getTranslations } from "next-intl/server";
 
+import { getGooglePlaceReviews } from "@/lib/google-reviews";
+
 import type { TestimonialConfig, TestimonialItem, TestimonialsProps } from "./types";
+
+const TAGAMO_MAPS_REVIEWS_URL = "https://maps.app.goo.gl/vPkmz1cYdyjekeRE8?g_st=ic";
+
+/* ── Multi-color Google "G" Icon ─────────────────────────────────────────── */
+const GoogleColorIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+    <path
+      fill="#4285F4"
+      d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"
+    />
+    <path
+      fill="#34A853"
+      d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"
+    />
+    <path
+      fill="#FBBC05"
+      d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"
+    />
+    <path
+      fill="#EA4335"
+      d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
+    />
+  </svg>
+);
 
 /* ── Gleaming Gold Star Icon ──────────────────────────────────────────────── */
 const StarIcon = () => (
@@ -14,15 +40,38 @@ const StarIcon = () => (
   </svg>
 );
 
-/* ── Verified Patient Badge Checkmark ─────────────────────────────────────── */
-const VerifiedCheckIcon = () => (
+/* ── External Link Icon ──────────────────────────────────────────────────── */
+const ExternalLinkIcon = ({ className = "h-3.5 w-3.5" }: { className?: string }) => (
   <svg
     viewBox="0 0 24 24"
-    fill="currentColor"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
     aria-hidden="true"
-    className="h-3.5 w-3.5 text-[#10b981]"
+    className={className}
   >
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    <polyline points="15 3 21 3 21 9" />
+    <line x1="10" y1="14" x2="21" y2="3" />
+  </svg>
+);
+
+/* ── Edit / Write Review Icon ────────────────────────────────────────────── */
+const WriteReviewIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    className="h-3.5 w-3.5"
+  >
+    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
   </svg>
 );
 
@@ -60,23 +109,51 @@ const ReviewSparkleIcon = () => (
 );
 
 const TESTIMONIAL_CONFIGS: TestimonialConfig[] = [
-  { id: "item1", avatarColor: "pink" },
-  { id: "item2", avatarColor: "blue" },
-  { id: "item3", avatarColor: "teal" },
-  { id: "item4", avatarColor: "purple" },
+  { id: "item1", avatarColor: "pink", googleVerified: true },
+  { id: "item2", avatarColor: "blue", googleVerified: true },
+  { id: "item3", avatarColor: "teal", googleVerified: true },
+  { id: "item4", avatarColor: "purple", googleVerified: true },
 ];
 
 export async function TestimonialsSection({ className = "" }: TestimonialsProps) {
   const t = await getTranslations("home.testimonialsSection");
+  const googleData = await getGooglePlaceReviews();
 
-  const items: TestimonialItem[] = TESTIMONIAL_CONFIGS.map((config) => ({
-    ...config,
-    quote: t(`items.${config.id}.quote`),
-    author: t(`items.${config.id}.author`),
-    initial: t(`items.${config.id}.initial`),
-    service: t(`items.${config.id}.service`),
-    stars: 5,
-  }));
+  const hasLiveReviews = Boolean(
+    googleData && googleData.reviews && googleData.reviews.length > 0,
+  );
+
+  const avatarColors: Array<"pink" | "blue" | "teal" | "purple"> = [
+    "pink",
+    "blue",
+    "teal",
+    "purple",
+  ];
+
+  const items: TestimonialItem[] = hasLiveReviews
+    ? googleData!.reviews.slice(0, 4).map((r, i) => ({
+        id: `live_review_${i}`,
+        quote: r.text,
+        author: r.authorName,
+        initial: r.authorName.trim().charAt(0) || "م",
+        service: r.relativeTime || t("googleReviews.verifiedOnGoogle"),
+        stars: r.rating || 5,
+        avatarColor: avatarColors[i % avatarColors.length] || "pink",
+        authorPhoto: r.authorPhoto,
+        relativeTime: r.relativeTime,
+      }))
+    : TESTIMONIAL_CONFIGS.map((config) => ({
+        ...config,
+        quote: t(`items.${config.id}.quote`),
+        author: t(`items.${config.id}.author`),
+        initial: t(`items.${config.id}.initial`),
+        service: t(`items.${config.id}.service`),
+        stars: 5,
+      }));
+
+  const ratingScore = googleData?.rating
+    ? googleData.rating.toFixed(1)
+    : t("ratingSummary.score");
 
   return (
     <section
@@ -109,22 +186,48 @@ export async function TestimonialsSection({ className = "" }: TestimonialsProps)
 
           <p className="testimonials-main-subtitle">{t("subtitle")}</p>
 
-          {/* Trust Rating Highlight Pill */}
-          <div className="testimonials-rating-pill">
-            <div className="testimonials-rating-stars" aria-label="5 stars rating">
-              {[...Array(5)].map((_, i) => (
-                <StarIcon key={i} />
-              ))}
+          {/* ── Google Maps Reviews Featured Pill & CTAs ───────────────────── */}
+          <div className="testimonials-google-banner">
+            <div className="testimonials-google-badge">
+              <GoogleColorIcon className="h-5 w-5 shrink-0" />
+              <div className="testimonials-rating-stars" aria-label="5 stars rating">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} />
+                ))}
+              </div>
+              <span className="testimonials-rating-score">{ratingScore}</span>
+              <span className="testimonials-rating-divider" aria-hidden="true">
+                •
+              </span>
+              <span className="testimonials-rating-label">
+                {t("googleReviews.badge")}
+              </span>
             </div>
-            <span className="testimonials-rating-score">
-              {t("ratingSummary.score")}
-            </span>
-            <span className="testimonials-rating-divider" aria-hidden="true">
-              •
-            </span>
-            <span className="testimonials-rating-label">
-              {t("ratingSummary.verifiedBadge")}
-            </span>
+
+            <div className="testimonials-google-actions">
+              <a
+                href={TAGAMO_MAPS_REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="google-action-btn google-action-btn-primary"
+                aria-label={t("googleReviews.viewAllBtn")}
+              >
+                <GoogleColorIcon className="h-4 w-4 shrink-0" />
+                <span>{t("googleReviews.viewAllBtn")}</span>
+                <ExternalLinkIcon className="h-3.5 w-3.5 opacity-80" />
+              </a>
+
+              <a
+                href={TAGAMO_MAPS_REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="google-action-btn google-action-btn-secondary"
+                aria-label={t("googleReviews.writeReviewBtn")}
+              >
+                <WriteReviewIcon />
+                <span>{t("googleReviews.writeReviewBtn")}</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -144,7 +247,7 @@ export async function TestimonialsSection({ className = "" }: TestimonialsProps)
               {/* Watermark Quote Icon */}
               <QuoteWatermark />
 
-              {/* Card Header: 5 Stars & Verified Badge */}
+              {/* Card Header: 5 Stars & Google Verified Link */}
               <div className="testimonial-card-header">
                 <div
                   className="stars flex items-center gap-1"
@@ -154,10 +257,16 @@ export async function TestimonialsSection({ className = "" }: TestimonialsProps)
                     <StarIcon key={starIndex} />
                   ))}
                 </div>
-                <div className="testimonial-verified-badge">
-                  <VerifiedCheckIcon />
-                  <span>موثق</span>
-                </div>
+                <a
+                  href={TAGAMO_MAPS_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="testimonial-verified-badge"
+                  title={t("googleReviews.verifiedOnGoogle")}
+                >
+                  <GoogleColorIcon className="h-3 w-3 shrink-0" />
+                  <span>{t("googleReviews.verifiedOnGoogle")}</span>
+                </a>
               </div>
 
               {/* Card Body: Quote Content */}
@@ -168,10 +277,20 @@ export async function TestimonialsSection({ className = "" }: TestimonialsProps)
               {/* Card Footer: Patient Profile */}
               <div className="testimonial-author">
                 <div
-                  className={`avatar testimonial-avatar testimonial-avatar-${item.avatarColor}`}
+                  className={`avatar testimonial-avatar testimonial-avatar-${item.avatarColor} overflow-hidden`}
                   aria-hidden="true"
                 >
-                  <span>{item.initial}</span>
+                  {item.authorPhoto ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={item.authorPhoto}
+                      alt={item.author}
+                      className="size-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span>{item.initial}</span>
+                  )}
                 </div>
                 <div className="testimonial-author-info">
                   <h4 className="testimonial-author-name">{item.author}</h4>

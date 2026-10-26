@@ -347,7 +347,7 @@ export async function SiteFooter({ className = "" }: SiteFooterProps) {
                     <span>01050600032</span>
                   </a>
                   <a
-                    href="https://maps.app.goo.gl/VdrbahguBBgAXdp16"
+                    href="https://maps.app.goo.gl/vPkmz1cYdyjekeRE8?g_st=ic"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer-branch-map"
@@ -372,7 +372,7 @@ export async function SiteFooter({ className = "" }: SiteFooterProps) {
                     <span>01050600033</span>
                   </a>
                   <a
-                    href="https://maps.google.com/?q=Madinaty+Medical+Center"
+                    href="https://maps.app.goo.gl/qNRDnm9gEdSfFQ4KA?g_st=ic"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer-branch-map"

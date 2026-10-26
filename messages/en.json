@@ -246,6 +246,14 @@
         "label": "Outstanding 5.0 Rating based on verified patient experiences",
         "verifiedBadge": "100% Verified Reviews"
       },
+      "googleReviews": {
+        "badge": "Google Maps • New Cairo Clinic",
+        "title": "5.0 Star Rating on Google Maps",
+        "subtitle": "Verified patient experiences at the New Cairo clinic",
+        "viewAllBtn": "View Reviews on Google Maps",
+        "writeReviewBtn": "Add Your Google Review",
+        "verifiedOnGoogle": "Verified on Google Maps"
+      },
       "items": {
         "item1": {
           "quote": "Truly one of the most skillful and compassionate doctors. May Allah bless your efforts and grant you continuous success.",
