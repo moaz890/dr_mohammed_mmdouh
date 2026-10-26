@@ -8,7 +8,13 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        // Google reviewer profile photos (Places API (New) returns lh3.googleusercontent.com URLs)
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+    ],
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "lodash-es", "date-fns"],

@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import { getGooglePlaceReviews } from "@/lib/google-reviews";
 
+import { TestimonialsCarousel } from "./testimonial-carousel";
 import type { TestimonialConfig, TestimonialItem, TestimonialsProps } from "./types";
 
 const TAGAMO_MAPS_REVIEWS_URL = "https://maps.app.goo.gl/vPkmz1cYdyjekeRE8?g_st=ic";
@@ -75,18 +76,6 @@ const WriteReviewIcon = () => (
   </svg>
 );
 
-/* ── Decorative Background Quotation Watermark ───────────────────────────── */
-const QuoteWatermark = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-    className="testimonial-quote-watermark"
-  >
-    <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.57-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
-  </svg>
-);
-
 /* ── Eyebrow Reviews Sparkle Icon ────────────────────────────────────────── */
 const ReviewSparkleIcon = () => (
   <svg
@@ -130,12 +119,13 @@ export async function TestimonialsSection({ className = "" }: TestimonialsProps)
     "purple",
   ];
 
+  // Fetch up to 8 live reviews (or whatever count is available, e.g. 6+) for a smooth carousel experience
   const items: TestimonialItem[] = hasLiveReviews
-    ? googleData!.reviews.slice(0, 4).map((r, i) => ({
+    ? googleData!.reviews.slice(0, 8).map((r, i) => ({
         id: `live_review_${i}`,
         quote: r.text,
         author: r.authorName,
-        initial: r.authorName.trim().charAt(0) || "م",
+        initial: r.authorName?.trim()?.charAt(0) || "م",
         service: r.relativeTime || t("googleReviews.verifiedOnGoogle"),
         stars: r.rating || 5,
         avatarColor: avatarColors[i % avatarColors.length] || "pink",
@@ -231,75 +221,12 @@ export async function TestimonialsSection({ className = "" }: TestimonialsProps)
           </div>
         </div>
 
-        {/* ── 4 Testimonials Responsive Grid ──────────────────────────────── */}
-        <div className="testimonials-grid">
-          {items.map((item, index) => (
-            <article
-              key={item.id}
-              className={`testimonial-card testimonial-card-${item.avatarColor} stagger-child group`}
-              style={{ "--stagger-i": index } as React.CSSProperties}
-              data-aos="fade-up"
-              data-aos-delay={(index + 1) * 100}
-            >
-              {/* Subtle top shimmer accent */}
-              <div className="testimonial-card-shimmer" aria-hidden="true" />
-
-              {/* Watermark Quote Icon */}
-              <QuoteWatermark />
-
-              {/* Card Header: 5 Stars & Google Verified Link */}
-              <div className="testimonial-card-header">
-                <div
-                  className="stars flex items-center gap-1"
-                  aria-label="5 of 5 stars"
-                >
-                  {[...Array(item.stars)].map((_, starIndex) => (
-                    <StarIcon key={starIndex} />
-                  ))}
-                </div>
-                <a
-                  href={TAGAMO_MAPS_REVIEWS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="testimonial-verified-badge"
-                  title={t("googleReviews.verifiedOnGoogle")}
-                >
-                  <GoogleColorIcon className="h-3 w-3 shrink-0" />
-                  <span>{t("googleReviews.verifiedOnGoogle")}</span>
-                </a>
-              </div>
-
-              {/* Card Body: Quote Content */}
-              <blockquote className="testimonial-body">
-                <p className="testimonial-quote">“{item.quote}”</p>
-              </blockquote>
-
-              {/* Card Footer: Patient Profile */}
-              <div className="testimonial-author">
-                <div
-                  className={`avatar testimonial-avatar testimonial-avatar-${item.avatarColor} overflow-hidden`}
-                  aria-hidden="true"
-                >
-                  {item.authorPhoto ? (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={item.authorPhoto}
-                      alt={item.author}
-                      className="size-full object-cover"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <span>{item.initial}</span>
-                  )}
-                </div>
-                <div className="testimonial-author-info">
-                  <h4 className="testimonial-author-name">{item.author}</h4>
-                  <span className="testimonial-author-service">{item.service}</span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        {/* ── Interactive Testimonials Carousel (Auto-playing, Drag/Swipe, Navigation) ──────────────── */}
+        <TestimonialsCarousel
+          items={items}
+          reviewsUrl={TAGAMO_MAPS_REVIEWS_URL}
+          verifiedLabel={t("googleReviews.verifiedOnGoogle")}
+        />
       </div>
     </section>
   );

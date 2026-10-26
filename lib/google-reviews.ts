@@ -1,3 +1,19 @@
+/**
+ * google-reviews.ts
+ *
+ * Server-side helper that fetches Google Maps reviews via SerpApi.
+ * Called directly from Server Components — no internal HTTP hop needed.
+ *
+ * SerpApi: free tier, 250 searches/month, no credit card required.
+ * Sign up at https://serpapi.com
+ *
+ * Caching: uses Next.js `fetch` with `next: { revalidate: 86400 }` so
+ * SerpApi is called at most once per day regardless of traffic.
+ */
+
+// ---------------------------------------------------------------------------
+// Public types (unchanged — TestimonialsSection imports these)
+// ---------------------------------------------------------------------------
 export interface GoogleReviewItem {
   authorName: string;
   authorPhoto?: string;
@@ -12,97 +28,94 @@ export interface GooglePlaceReviewsData {
   reviews: GoogleReviewItem[];
 }
 
-/**
- * Default fallback Place ID query for Tagamo Clinic:
- * Can be overridden in .env via GOOGLE_PLACE_ID
- */
-const DEFAULT_PLACE_QUERY = "الدكتور محمد ممدوح صالح مدرس واستشاري النساء والتوليد";
+// ---------------------------------------------------------------------------
+// SerpApi response types (google_maps_reviews engine)
+// ---------------------------------------------------------------------------
+interface SerpApiReview {
+  user: {
+    name: string;
+    thumbnail?: string;
+  };
+  rating: number;
+  date: string;
+  snippet?: string;
+}
+
+interface SerpApiResponse {
+  place_info?: {
+    rating?: number;
+    reviews?: number;
+  };
+  reviews?: SerpApiReview[];
+  error?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Main export
+// ---------------------------------------------------------------------------
 
 /**
- * Fetches real-time reviews from Google Places API (Legacy or New).
- * Uses Next.js Incremental Static Regeneration (revalidate every 1 hour)
- * to prevent quota exhaustion and maximize speed.
+ * Fetches Google Maps reviews from SerpApi.
+ *
+ * - Filters to ≥ 4 stars only.
+ * - SerpApi returns results sorted newest-first (sort_by=newestFirst).
+ * - Results are cached for 24 hours via Next.js fetch ISR.
+ *
+ * Returns `null` when SERP_API_KEY / GOOGLE_PLACE_ID is missing or on error.
  */
 export async function getGooglePlaceReviews(): Promise<GooglePlaceReviewsData | null> {
-  const apiKey = process.env.GOOGLE_API_KEY;
-  if (!apiKey || apiKey.trim() === "") {
+  const serpApiKey = process.env.SERP_API_KEY;
+  const placeId = process.env.GOOGLE_PLACE_ID;
+
+  if (!serpApiKey?.trim() || !placeId?.trim()) {
     return null;
   }
 
   try {
-    let placeId = process.env.GOOGLE_PLACE_ID?.trim();
-
-    // 1. Resolve Place ID if not directly provided
-    if (!placeId) {
-      const searchUrl = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${encodeURIComponent(
-        DEFAULT_PLACE_QUERY,
-      )}&inputtype=textquery&fields=place_id&key=${apiKey}`;
-
-      const searchRes = await fetch(searchUrl, {
-        next: { revalidate: 86400 }, // Cache search query for 24h
-      });
-
-      if (!searchRes.ok) {
-        return null;
-      }
-
-      const searchJson = await searchRes.json();
-      if (
-        searchJson.status === "OK" &&
-        searchJson.candidates &&
-        searchJson.candidates.length > 0
-      ) {
-        placeId = searchJson.candidates[0].place_id;
-      }
-    }
-
-    if (!placeId) {
-      return null;
-    }
-
-    // 2. Fetch Place Details with Reviews
-    const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&language=ar&key=${apiKey}`;
-
-    const detailsRes = await fetch(detailsUrl, {
-      next: { revalidate: 3600 }, // Revalidate every 1 hour
+    const params = new URLSearchParams({
+      engine: "google_maps_reviews",
+      place_id: placeId,
+      sort_by: "newestFirst",
+      hl: "ar",
+      api_key: serpApiKey,
     });
 
-    if (!detailsRes.ok) {
+    const res = await fetch(`https://serpapi.com/search.json?${params.toString()}`, {
+      // Next.js ISR: cache this response for 24 hours.
+      // SerpApi is only called once per day, not on every page render.
+      next: { revalidate: 86400 },
+    });
+
+    if (!res.ok) {
+      console.error(`[SerpApi] HTTP ${res.status}:`, await res.text());
       return null;
     }
 
-    const detailsJson = await detailsRes.json();
-    if (detailsJson.status !== "OK" || !detailsJson.result) {
+    const data = (await res.json()) as SerpApiResponse;
+
+    if (data.error) {
+      console.error("[SerpApi] API error:", data.error);
       return null;
     }
 
-    const result = detailsJson.result;
-    const rawReviews = result.reviews || [];
-
-    const reviews: GoogleReviewItem[] = rawReviews.map(
-      (r: {
-        author_name: string;
-        profile_photo_url?: string;
-        rating: number;
-        relative_time_description?: string;
-        text: string;
-      }) => ({
-        authorName: r.author_name,
-        authorPhoto: r.profile_photo_url,
-        rating: r.rating || 5,
-        relativeTime: r.relative_time_description || "",
-        text: r.text || "",
-      }),
-    );
+    // Filter: only 4★ and 5★ reviews that have actual text
+    const reviews: GoogleReviewItem[] = (data.reviews ?? [])
+      .filter((r) => r.rating >= 4 && r.snippet && r.snippet.trim().length > 0)
+      .map((r) => ({
+        authorName: r.user.name,
+        authorPhoto: r.user.thumbnail ?? undefined,
+        rating: r.rating,
+        relativeTime: r.date,
+        text: r.snippet ?? "",
+      }));
 
     return {
-      rating: result.rating || 5.0,
-      userRatingsTotal: result.user_ratings_total || reviews.length,
+      rating: data.place_info?.rating ?? 5.0,
+      userRatingsTotal: data.place_info?.reviews ?? reviews.length,
       reviews,
     };
   } catch (error) {
-    // Non-blocking error handling
-    console.error("[Google Reviews Fetch Error]:", error);
+    console.error("[SerpApi] Fetch failed:", error);
     return null;
   }
 }

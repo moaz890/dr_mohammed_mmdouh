@@ -8,6 +8,7 @@ export const config = {
   matcher: [
     "/",
     "/(ar|en)/:path*",
-    "/((?!_next|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
+    // Exclude: Next.js internals, static files, and API routes from locale middleware
+    "/((?!_next|_next/static|_next/image|api|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
   ],
 };
