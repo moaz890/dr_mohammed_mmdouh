@@ -139,7 +139,7 @@ export function TestimonialsCarousel({
       {/* ── Carousel Viewport & Track ─────────────────────────────────────── */}
       <div className="testimonials-carousel-viewport" ref={emblaRef}>
         <div className="testimonials-carousel-track">
-          {items.map((item, index) => (
+          {items.map((item) => (
             <div key={item.id} className="testimonials-carousel-slide">
               <article
                 className={cn(

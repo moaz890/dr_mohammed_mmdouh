@@ -41,6 +41,7 @@ export function TestimonialAvatar({
       aria-hidden="true"
     >
       {hasPhoto ? (
+        /* eslint-disable-next-line @next/next/no-img-element */
         <img
           src={authorPhoto}
           alt={author}

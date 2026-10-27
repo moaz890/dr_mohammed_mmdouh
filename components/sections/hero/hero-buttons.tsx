@@ -26,7 +26,7 @@ export function HeroButtons({
       )}
     >
       <Link
-        href={routePaths.appointment}
+        href={routePaths.clinics}
         className={cn(
           buttonVariants({ size: "lg" }),
           "h-12 gap-2.5 rounded-full bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-blue-light)] px-7 text-base font-bold text-white shadow-lg shadow-[var(--brand-blue)]/25 transition-all duration-300 hover:shadow-xl hover:shadow-[var(--brand-blue)]/35 hover:-translate-y-0.5 active:translate-y-0",

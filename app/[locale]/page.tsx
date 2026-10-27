@@ -54,10 +54,10 @@ export default async function HomePage({ params }: HomePageProps) {
         <Hero />
         <Stats />
         <DoctorBrief />
+        <TestimonialsSection />
         <Services />
         <ReelsSection />
         <VisionSection />
-        <TestimonialsSection />
         <FaqSection />
         <LocationsSection />
         <CtaSection />
