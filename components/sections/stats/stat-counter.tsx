@@ -6,6 +6,7 @@ type StatCounterProps = {
   target: number;
   prefix?: string;
   suffix?: string;
+  decimals?: number;
   duration?: number;
   delay?: number;
 };
@@ -14,6 +15,7 @@ export function StatCounter({
   target,
   prefix = "",
   suffix = "",
+  decimals = 0,
   duration = 2000,
   delay = 0,
 }: StatCounterProps) {
@@ -56,7 +58,11 @@ export function StatCounter({
           // Ease-out expo curve for ultra-smooth deceleration
           const easeOutProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
 
-          const currentValue = Math.round(easeOutProgress * target);
+          const rawValue = easeOutProgress * target;
+          const currentValue =
+            decimals > 0
+              ? parseFloat(rawValue.toFixed(decimals))
+              : Math.round(rawValue);
           setDisplayValue(currentValue);
 
           if (progress < 1) {
@@ -129,14 +135,18 @@ export function StatCounter({
         clearTimeout(delayTimeoutId);
       }
     };
-  }, [target, duration, delay]);
+  }, [target, duration, delay, decimals]);
 
-  // Formatter for integers with thousands separator (e.g. 10,000)
-  const formattedNumber = displayValue.toLocaleString("en-US");
+  // Formatter for integers with thousands separator (e.g. 10,000) or fixed decimals (e.g. 5.0)
+  const formattedNumber =
+    decimals > 0
+      ? displayValue.toFixed(decimals)
+      : displayValue.toLocaleString("en-US");
 
   return (
     <span
       ref={containerRef}
+      dir="ltr"
       className="stat-number-inner inline-flex items-center tabular-nums"
       data-target={target}
     >

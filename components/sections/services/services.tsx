@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
-import { routePaths } from "@/config/routes";
 import { Link } from "@/i18n/navigation";
 
 import type { ServiceConfig, ServiceItem, ServicesProps } from "./types";
@@ -28,55 +27,55 @@ const SERVICE_CONFIGS: ServiceConfig[] = [
     id: "hysterectomy",
     image: "/services/hysterectomy.jpeg",
     categoryKey: "جراحة مناظير متقدمة",
-    href: routePaths.gynecology,
+    href: "/services/hysterectomy",
   },
   {
     id: "endometriosis",
     image: "/services/endometriosis.jpeg",
     categoryKey: "بطانة الرحم المهاجرة",
-    href: routePaths.laparoscopy,
+    href: "/services/endometriosis",
   },
   {
     id: "fibroids",
     image: "/services/fibroids.jpeg",
     categoryKey: "أورام الرحم الليفية",
-    href: routePaths.gynecology,
+    href: "/services/fibroids",
   },
   {
     id: "prp",
     image: "/services/prp.jpeg",
     categoryKey: "الخصوبة وتجديد المبيض",
-    href: routePaths.ivf,
+    href: "/services/prp",
   },
   {
     id: "laparoscopy",
     image: "/services/laparoscopy.jpeg",
     categoryKey: "جراحة المناظير الدقيقة",
-    href: routePaths.laparoscopy,
+    href: "/services/laparoscopy",
   },
   {
     id: "hysteroscopy",
     image: "/services/hysteroscopy.jpeg",
     categoryKey: "مناظير تجويف الرحم",
-    href: routePaths.gynecology,
+    href: "/services/hysteroscopy",
   },
   {
     id: "adenomyosis",
     image: "/services/adenomyosis.jpeg",
     categoryKey: "التغدد وعضلات الرحم",
-    href: routePaths.gynecology,
+    href: "/services/adenomyosis",
   },
   {
     id: "c_section",
     image: "/services/c-section.jpeg",
     categoryKey: "رعاية الولادة الآمنة",
-    href: routePaths.obstetrics,
+    href: "/services/c-section",
   },
   {
     id: "natural_birth",
     image: "/services/natural-birth.jpeg",
     categoryKey: "الولادة الطبيعية الميسرة",
-    href: routePaths.obstetrics,
+    href: "/services/natural-birth",
   },
 ];
 
@@ -120,7 +119,7 @@ export async function Services({ className = "" }: ServicesProps) {
               data-aos-delay={((index % 3) + 1) * 100}
             >
               {/* Image with Category Badge */}
-              <div className="image-wrapper">
+              <Link href={service.href} className="image-wrapper block">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -136,11 +135,16 @@ export async function Services({ className = "" }: ServicesProps) {
                   className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40"
                   aria-hidden="true"
                 />
-              </div>
+              </Link>
 
               {/* Card Content & Action Link */}
               <div className="content">
-                <h3 className="service-card-title">{service.title}</h3>
+                <Link
+                  href={service.href}
+                  className="block group-hover:text-[var(--brand-blue)] transition-colors"
+                >
+                  <h3 className="service-card-title">{service.title}</h3>
+                </Link>
                 <p className="service-card-desc">{service.description}</p>
                 <Link
                   href={service.href}

@@ -130,6 +130,7 @@ const STAT_CONFIGS = [
     number: 20,
     prefix: "+",
     suffix: "",
+    decimals: 0,
     iconType: "calendar",
   },
   {
@@ -137,6 +138,7 @@ const STAT_CONFIGS = [
     number: 10000,
     prefix: "+",
     suffix: "",
+    decimals: 0,
     iconType: "procedures",
   },
   {
@@ -144,13 +146,15 @@ const STAT_CONFIGS = [
     number: 50000,
     prefix: "+",
     suffix: "",
+    decimals: 0,
     iconType: "users",
   },
   {
     id: "rating",
     number: 5,
     prefix: "",
-    suffix: ".0",
+    suffix: "",
+    decimals: 1,
     iconType: "star",
   },
 ] as const;
@@ -199,11 +203,12 @@ export async function Stats({ className = "" }: StatsProps) {
               </div>
 
               {/* Animated number with data-target */}
-              <div className="stat-number" data-target={item.number}>
+              <div className="stat-number" dir="ltr" data-target={item.number}>
                 <StatCounter
                   target={item.number}
                   prefix={item.prefix}
                   suffix={item.suffix}
+                  decimals={item.decimals}
                   delay={index * 100}
                 />
               </div>

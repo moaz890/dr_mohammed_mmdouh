@@ -5,6 +5,7 @@ export type StatItem = {
   number: number;
   prefix?: string;
   suffix?: string;
+  decimals?: number;
   label: string;
   description: string;
   iconType: "calendar" | "procedures" | "users" | "star";
