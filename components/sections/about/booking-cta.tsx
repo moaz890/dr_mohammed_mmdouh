@@ -1,9 +1,26 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+
+/* Map Pin icon */
+const MapPinIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    className={className}
+  >
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
 
 /* Phone icon */
 const PhoneIcon = () => (
@@ -50,13 +67,43 @@ function addRipple(e: React.MouseEvent<HTMLAnchorElement>) {
 
 export function BookingCta() {
   const t = useTranslations("about");
+  const tLocations = useTranslations("home.locationsSection");
 
-  const phoneNumber = t("cta.phone");
-  const whatsappUrl = buildWhatsAppUrl(t("cta.whatsappMessage"), phoneNumber);
+  const [activeBranchId, setActiveBranchId] = useState<"newCairo" | "madinaty">(
+    "newCairo",
+  );
+
+  const branches = [
+    {
+      id: "newCairo" as const,
+      name: tLocations("branches.newCairo.name"),
+      city: tLocations("branches.newCairo.city"),
+      address: tLocations("branches.newCairo.address"),
+      phone: tLocations("branches.newCairo.phone"),
+    },
+    {
+      id: "madinaty" as const,
+      name: tLocations("branches.madinaty.name"),
+      city: tLocations("branches.madinaty.city"),
+      address: tLocations("branches.madinaty.address"),
+      phone: tLocations("branches.madinaty.phone"),
+    },
+  ];
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => addRipple(e),
     [],
+  );
+
+  const activeBranch = branches.find((b) => b.id === activeBranchId) ?? branches[0];
+
+  if (!activeBranch) {
+    return null;
+  }
+
+  const whatsappUrl = buildWhatsAppUrl(
+    `مرحباً دكتور محمد صالح، أود حجز موعد في ${activeBranch.name}.`,
+    activeBranch.phone,
   );
 
   return (
@@ -70,10 +117,49 @@ export function BookingCta() {
         </h2>
         <p className="cta-subtitle">{t("cta.subtitle")}</p>
 
+        {/* ── Clinic Branch Switcher Tabs ─────────────────────────────────── */}
+        <div
+          className="cta-branch-tabs mb-5"
+          role="tablist"
+          aria-label="اختيار فرع العيادة"
+        >
+          {branches.map((branch) => {
+            const isActive = activeBranchId === branch.id;
+            return (
+              <button
+                key={branch.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveBranchId(branch.id)}
+                className={`cta-branch-tab-btn ${
+                  isActive ? "cta-branch-tab-btn--active" : ""
+                }`}
+              >
+                <MapPinIcon className={isActive ? "text-[#dd6b90]" : "text-white/80"} />
+                <span>{branch.name}</span>
+                <span className="cta-branch-badge">{branch.city}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Branch Info Pill */}
+        <div className="cta-branch-info mb-6">
+          <span className="cta-branch-pill">
+            <MapPinIcon className="h-3.5 w-3.5 text-[#ffb4cc]" />
+            <span>{activeBranch.address}</span>
+          </span>
+          <span className="cta-branch-pill">
+            <PhoneIcon />
+            <bdi>{activeBranch.phone}</bdi>
+          </span>
+        </div>
+
         <div className="cta-actions">
           {/* Phone CTA */}
           <a
-            href={`tel:${phoneNumber}`}
+            href={`tel:${activeBranch.phone}`}
             className="cta-btn cta-btn--phone"
             onClick={handleClick}
           >

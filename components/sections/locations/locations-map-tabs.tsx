@@ -57,7 +57,7 @@ export function LocationsMapTabs({ branches, directionsLabel }: LocationsMapTabs
     <div className="locations-maps-box">
       {/* ── Tabs Selector ────────────────────────────────────────────────── */}
       <div
-        className="locations-tabs-bar mb-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3"
+        className="locations-tabs-bar mb-6"
         role="tablist"
         aria-label="اختيار فرع العيادة على الخريطة"
       >
@@ -73,7 +73,7 @@ export function LocationsMapTabs({ branches, directionsLabel }: LocationsMapTabs
               aria-controls={`map-panel-${branch.id}`}
               id={`map-tab-${branch.id}`}
               onClick={() => setActiveBranchId(branch.id)}
-              className={`locations-tab-btn flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-bold transition-all ${
+              className={`locations-tab-btn flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold transition-all ${
                 isActive
                   ? "locations-tab-btn--active bg-[var(--brand-blue)] text-white shadow-lg shadow-[var(--brand-blue)]/25"
                   : "bg-white/80 text-foreground/80 hover:bg-white hover:text-foreground"
