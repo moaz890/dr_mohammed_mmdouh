@@ -120,6 +120,7 @@ export async function FaqSection({ className = "" }: FaqSectionProps) {
               branches={branches}
               callBtnLabel={t("stillHaveQuestions.callBtn")}
               whatsappBtnLabel={t("stillHaveQuestions.whatsappBtn")}
+              onlineReservationBtnLabel={t("stillHaveQuestions.onlineReservationBtn")}
             />
           </div>
         </div>

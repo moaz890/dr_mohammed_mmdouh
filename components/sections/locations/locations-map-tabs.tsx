@@ -45,7 +45,7 @@ interface LocationsMapTabsProps {
 }
 
 export function LocationsMapTabs({ branches, directionsLabel }: LocationsMapTabsProps) {
-  const [activeBranchId, setActiveBranchId] = useState<BranchLocationId>("newCairo");
+  const [activeBranchId, setActiveBranchId] = useState<BranchLocationId>("madinaty");
 
   const activeBranch = branches.find((b) => b.id === activeBranchId) ?? branches[0];
 

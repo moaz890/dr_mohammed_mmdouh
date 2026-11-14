@@ -1091,6 +1091,15 @@
   box-shadow: 0 14px 32px -8px rgba(37, 211, 102, 0.55);
 }
 
+.cta-btn--online {
+  background: linear-gradient(135deg, #dd6b90 0%, #c44d73 100%);
+  color: #fff;
+}
+
+.cta-btn--online:hover {
+  box-shadow: 0 14px 32px -8px rgba(221, 107, 144, 0.55);
+}
+
 .cta-btn-icon {
   width: 1.25rem;
   height: 1.25rem;

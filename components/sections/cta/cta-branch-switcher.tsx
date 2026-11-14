@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, getOnlineReservationUrl } from "@/lib/whatsapp";
 
 export interface CtaBranchItem {
   id: "newCairo" | "madinaty";
@@ -17,7 +17,25 @@ interface CtaBranchSwitcherProps {
   branches: CtaBranchItem[];
   callBtnLabel: string;
   whatsappBtnLabel: string;
+  onlineReservationBtnLabel?: string;
 }
+
+/* ── Video Call / Telehealth Icon ────────────────────────────────────────── */
+const VideoCallIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    className="h-5 w-5 shrink-0"
+  >
+    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11v2z" />
+    <rect width="14" height="12" x="2" y="6" rx="2" />
+  </svg>
+);
 
 /* ── Map Pin Icon ────────────────────────────────────────────────────────── */
 const MapPinIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
@@ -64,9 +82,10 @@ export function CtaBranchSwitcher({
   branches,
   callBtnLabel,
   whatsappBtnLabel,
+  onlineReservationBtnLabel,
 }: CtaBranchSwitcherProps) {
   const [activeBranchId, setActiveBranchId] = useState<"newCairo" | "madinaty">(
-    "newCairo",
+    "madinaty",
   );
 
   const activeBranch = branches.find((b) => b.id === activeBranchId) ?? branches[0];
@@ -143,6 +162,19 @@ export function CtaBranchSwitcher({
           <WhatsAppIcon />
           <span>{whatsappBtnLabel}</span>
         </a>
+
+        {activeBranch.id === "madinaty" && (
+          <a
+            href={getOnlineReservationUrl()}
+            className="cta-btn online"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={onlineReservationBtnLabel ?? "حجز استشارة أونلاين"}
+          >
+            <VideoCallIcon />
+            <span>{onlineReservationBtnLabel ?? "حجز استشارة أونلاين"}</span>
+          </a>
+        )}
       </div>
     </div>
   );

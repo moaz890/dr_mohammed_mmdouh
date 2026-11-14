@@ -71,6 +71,7 @@ export async function CtaSection({
           branches={branches}
           callBtnLabel={t("callBtn")}
           whatsappBtnLabel={t("whatsappBtn")}
+          onlineReservationBtnLabel={t("onlineReservationBtn")}
         />
       </div>
     </section>

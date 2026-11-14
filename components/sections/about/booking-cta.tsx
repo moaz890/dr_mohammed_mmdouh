@@ -3,7 +3,24 @@
 import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, getOnlineReservationUrl } from "@/lib/whatsapp";
+
+/* Video Call / Telehealth icon */
+const VideoCallIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+    className="cta-btn-icon"
+  >
+    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11v2z" />
+    <rect width="14" height="12" x="2" y="6" rx="2" />
+  </svg>
+);
 
 /* Map Pin icon */
 const MapPinIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
@@ -70,7 +87,7 @@ export function BookingCta() {
   const tLocations = useTranslations("home.locationsSection");
 
   const [activeBranchId, setActiveBranchId] = useState<"newCairo" | "madinaty">(
-    "newCairo",
+    "madinaty",
   );
 
   const branches = [
@@ -180,6 +197,20 @@ export function BookingCta() {
             <WhatsAppIcon />
             <span>{t("cta.whatsapp_label")}</span>
           </a>
+
+          {/* Online Reservation CTA */}
+          {activeBranch.id === "madinaty" && (
+            <a
+              href={getOnlineReservationUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-btn cta-btn--online"
+              onClick={handleClick}
+            >
+              <VideoCallIcon />
+              <span>{t("cta.onlineReservationBtn")}</span>
+            </a>
+          )}
         </div>
       </div>
     </section>

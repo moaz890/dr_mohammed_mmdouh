@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, getOnlineReservationUrl } from "@/lib/whatsapp";
 
 import { LocationsMapTabs } from "./locations-map-tabs";
 import type {
@@ -8,6 +8,23 @@ import type {
   BranchLocationItem,
   LocationsSectionProps,
 } from "./types";
+
+/* ── Video Call / Telehealth Icon ────────────────────────────────────────── */
+const VideoCallIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    className="h-4 w-4"
+  >
+    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11v2z" />
+    <rect width="14" height="12" x="2" y="6" rx="2" />
+  </svg>
+);
 
 /* ── Map Marker Pin Icon ─────────────────────────────────────────────────── */
 const MapMarkerIcon = () => (
@@ -207,6 +224,19 @@ export async function LocationsSection({ className = "" }: LocationsSectionProps
                           <MapMarkerIcon />
                           <span>{t("directionsBtn")}</span>
                         </a>
+
+                        {branch.id === "madinaty" && (
+                          <a
+                            href={getOnlineReservationUrl()}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="location-online-btn inline-flex items-center gap-1.5 rounded-xl border border-[var(--brand-pink)]/40 bg-[var(--brand-pink-muted)] px-3.5 py-2 text-xs font-bold text-[var(--brand-pink)] transition-all hover:bg-[var(--brand-pink)] hover:text-white sm:text-sm"
+                            aria-label={`${t("onlineReservationBtn")} (${branch.name})`}
+                          >
+                            <VideoCallIcon />
+                            <span>{t("onlineReservationBtn")}</span>
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>

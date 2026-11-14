@@ -230,6 +230,20 @@
   transform: translateY(-1px);
 }
 
+.location-online-btn {
+  background: var(--brand-pink-muted);
+  color: var(--brand-pink);
+  border-color: rgba(221, 107, 144, 0.35);
+}
+
+.location-online-btn:hover {
+  background: var(--brand-pink);
+  color: #ffffff;
+  border-color: var(--brand-pink);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(221, 107, 144, 0.28);
+}
+
 /* ── Interactive Map Section ─────────────────────────────────────────────── */
 .locations-map-section {
   position: relative;

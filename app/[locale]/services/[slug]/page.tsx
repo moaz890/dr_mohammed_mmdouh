@@ -114,6 +114,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       whatsappBtn: isAr ? "استشارة فورية عبر واتساب" : "Instant WhatsApp Inquiry",
       callBtn: isAr ? "اتصال هاتفي بالعيادة" : "Call Clinic",
       clinicsBtn: isAr ? "فروع العيادات والمواعيد" : "Clinics & Location Info",
+      onlineReservationBtn: isAr ? "حجز استشارة أونلاين" : "Book Online Consultation",
     },
   };
 

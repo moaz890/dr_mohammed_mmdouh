@@ -19,3 +19,10 @@ export function buildWhatsAppUrl(message?: string, phoneNumber?: string): string
 
   return `https://api.whatsapp.com/send/?phone=${digits}&text${textParam}&type=phone_number&app_absent=0`;
 }
+
+export const MADINATY_PHONE = "01050600033";
+export const ONLINE_RESERVATION_MESSAGE = "السلام عليكم ارغب في حجز استشارة اونلاين";
+
+export function getOnlineReservationUrl(): string {
+  return buildWhatsAppUrl(ONLINE_RESERVATION_MESSAGE, MADINATY_PHONE);
+}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, getOnlineReservationUrl } from "@/lib/whatsapp";
 
 export interface FaqBranchItem {
   id: "newCairo" | "madinaty";
@@ -15,7 +15,25 @@ interface FaqContactSwitcherProps {
   branches: FaqBranchItem[];
   callBtnLabel: string;
   whatsappBtnLabel: string;
+  onlineReservationBtnLabel?: string;
 }
+
+/* ── Video Call / Telehealth Icon ────────────────────────────────────────── */
+const VideoCallIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    className="h-4 w-4 shrink-0"
+  >
+    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11v2z" />
+    <rect width="14" height="12" x="2" y="6" rx="2" />
+  </svg>
+);
 
 /* ── Map Pin Icon ────────────────────────────────────────────────────────── */
 const MapPinIcon = ({ className = "h-3.5 w-3.5" }: { className?: string }) => (
@@ -62,9 +80,10 @@ export function FaqContactSwitcher({
   branches,
   callBtnLabel,
   whatsappBtnLabel,
+  onlineReservationBtnLabel,
 }: FaqContactSwitcherProps) {
   const [activeBranchId, setActiveBranchId] = useState<"newCairo" | "madinaty">(
-    "newCairo",
+    "madinaty",
   );
 
   const activeBranch = branches.find((b) => b.id === activeBranchId) ?? branches[0];
@@ -142,6 +161,18 @@ export function FaqContactSwitcher({
             {callBtnLabel}: <bdi>{activeBranch.phone}</bdi>
           </span>
         </a>
+
+        {activeBranch.id === "madinaty" && (
+          <a
+            href={getOnlineReservationUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="faq-cta-online-btn inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#dd6b90] to-[#c44d73] px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-[#dd6b90]/25 transition-all hover:brightness-105 hover:scale-[1.02]"
+          >
+            <VideoCallIcon />
+            <span>{onlineReservationBtnLabel ?? "حجز استشارة أونلاين"}</span>
+          </a>
+        )}
       </div>
     </div>
   );

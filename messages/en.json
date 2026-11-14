@@ -8,7 +8,8 @@
     "actions": {
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
-      "skipToContent": "Skip to main content"
+      "skipToContent": "Skip to main content",
+      "onlineReservation": "Book Online Consultation"
     },
     "brand": {
       "logoAlt": "Dr. Saleh Specialty Clinics — Prof. Mohammed Mamdouh Saleh"
@@ -293,7 +294,8 @@
         "title": "Have a question not listed here?",
         "description": "Our medical team is readily available to answer your questions and provide personalized clinical guidance.",
         "whatsappBtn": "Chat on WhatsApp",
-        "callBtn": "Direct Phone Call"
+        "callBtn": "Direct Phone Call",
+        "onlineReservationBtn": "Book Online Consultation"
       },
       "items": {
         "booking": {
@@ -314,7 +316,7 @@
         },
         "painlessBirth": {
           "question": "Can childbirth be performed painlessly?",
-          "answer": "Yes, utilizing advanced modern medical techniques and tailored regional anesthesia protocols (such as Epidural analgesia and Patient-Controlled Analgesia PCA), labor and cesarean pain can be minimized significantly, ensuring a peaceful, safe, and empowering birth experience."
+          "answer": "Yes, utilizing advanced modern medical techniques and tailored analgesia protocols (such as Epidural analgesia, patient-controlled analgesia devices, and cutting-edge techniques exclusive to our clinics), labor and cesarean pain can be minimized significantly while ensuring complete safety and comfort for both mother and baby throughout and after delivery."
         },
         "fibroids": {
           "question": "Can uterine fibroids be treated without a hysterectomy?",
@@ -334,6 +336,7 @@
       "callBtn": "Direct Call",
       "directionsBtn": "Get Directions",
       "whatsappBtn": "WhatsApp",
+      "onlineReservationBtn": "Book Online Consultation",
       "selectBranch": "View Map",
       "branches": {
         "newCairo": {
@@ -357,6 +360,7 @@
       "subtitle": "We are here to assist you and answer all your medical inquiries",
       "callBtn": "Call Now",
       "whatsappBtn": "WhatsApp",
+      "onlineReservationBtn": "Book Online Consultation",
       "phone": "+201050600032"
     },
     "socialSection": {
@@ -562,6 +566,7 @@
       "phone_label": "Call Us Now",
       "phone": "+201050600032",
       "whatsapp_label": "WhatsApp Consultation",
+      "onlineReservationBtn": "Book Online Consultation",
       "whatsappMessage": "Hello Prof. Mohammed Saleh, I would like to inquire and book a consultation at Dr. Saleh Specialty Clinics."
     }
   },
@@ -571,7 +576,8 @@
       "title": "Need Medical Guidance or an Urgent Consultation?",
       "subtitle": "Our medical coordination team is available to promptly assist with your inquiries and arrange private clinic appointments.",
       "callBtn": "Direct Hotline: 01050600032",
-      "whatsappBtn": "Instant WhatsApp Chat"
+      "whatsappBtn": "Instant WhatsApp Chat",
+      "onlineReservationBtn": "Book Online Consultation"
     },
     "brand": {
       "doctorName": "Prof. Mohammed Mamdouh Saleh",
@@ -632,7 +638,11 @@
     "features": {
       "reservation": "Private Consultations by Prior Booking",
       "sonar": "Advanced High-Definition 4D Fetal Ultrasound",
-      "parking": "Prime Accessible Locations with Ample Parking"
+      "parking": "Prime Accessible Locations with Ample Parking",
+      "laparoscopy": "Advanced Laparoscopy & Minimally Invasive Gynecological Tumor Excision",
+      "ivf": "Personalized & Cost-Effective IVF Protocols",
+      "highRiskPregnancy": "Specialized High-Risk Pregnancy Care Programs",
+      "placentaAccreta": "Advanced Placenta Accreta & Complex Surgeries"
     },
     "bookingGuide": {
       "title": "How to Book Your Clinic Visit",

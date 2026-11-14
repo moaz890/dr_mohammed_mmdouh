@@ -39,24 +39,24 @@ export default async function ClinicsPage({ params }: ClinicsPageProps) {
           <p className="clinics-page-subtitle">{t("subtitle")}</p>
 
           <div className="clinics-features-pills">
-            <div className="clinics-pill">
-              <span className="clinics-pill-icon" aria-hidden="true">
-                ✓
-              </span>
-              <span>{t("features.reservation")}</span>
-            </div>
-            <div className="clinics-pill">
-              <span className="clinics-pill-icon" aria-hidden="true">
-                ✓
-              </span>
-              <span>{t("features.sonar")}</span>
-            </div>
-            <div className="clinics-pill">
-              <span className="clinics-pill-icon" aria-hidden="true">
-                ✓
-              </span>
-              <span>{t("features.parking")}</span>
-            </div>
+            {(
+              [
+                "reservation",
+                "sonar",
+                "parking",
+                "laparoscopy",
+                "ivf",
+                "highRiskPregnancy",
+                "placentaAccreta",
+              ] as const
+            ).map((featureKey) => (
+              <div key={featureKey} className="clinics-pill">
+                <span className="clinics-pill-icon" aria-hidden="true">
+                  ✓
+                </span>
+                <span>{t(`features.${featureKey}`)}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
