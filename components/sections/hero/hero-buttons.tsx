@@ -1,14 +1,14 @@
-import { CalendarDays, MessageCircle } from "lucide-react";
+import { MessageCircle, Video } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
-import { routePaths } from "@/config/routes";
-import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { getOnlineReservationUrl } from "@/lib/whatsapp";
 
 type HeroButtonsProps = {
   primaryLabel: string;
   secondaryLabel: string;
   whatsappUrl: string;
+  onlineReservationUrl?: string;
   className?: string;
 };
 
@@ -16,8 +16,11 @@ export function HeroButtons({
   primaryLabel,
   secondaryLabel,
   whatsappUrl,
+  onlineReservationUrl,
   className,
 }: HeroButtonsProps) {
+  const reservationUrl = onlineReservationUrl || getOnlineReservationUrl();
+
   return (
     <div
       className={cn(
@@ -25,16 +28,18 @@ export function HeroButtons({
         className,
       )}
     >
-      <Link
-        href={routePaths.clinics}
+      <a
+        href={reservationUrl}
+        target="_blank"
+        rel="noopener noreferrer"
         className={cn(
           buttonVariants({ size: "lg" }),
           "h-12 gap-2.5 rounded-full bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-blue-light)] px-7 text-base font-bold text-white shadow-lg shadow-[var(--brand-blue)]/25 transition-all duration-300 hover:shadow-xl hover:shadow-[var(--brand-blue)]/35 hover:-translate-y-0.5 active:translate-y-0",
         )}
       >
-        <CalendarDays className="size-5" aria-hidden />
+        <Video className="size-5" aria-hidden />
         <span>{primaryLabel}</span>
-      </Link>
+      </a>
 
       <a
         href={whatsappUrl}

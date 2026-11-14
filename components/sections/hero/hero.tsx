@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, getOnlineReservationUrl } from "@/lib/whatsapp";
 
 import { HeroShell } from "./hero-shell";
 import type { HeroContentProps, HeroTrustItem } from "./types";
@@ -39,6 +39,7 @@ export async function Hero() {
     ctaPrimary: t("cta.primary"),
     ctaSecondary: t("cta.secondary"),
     whatsappUrl: buildWhatsAppUrl(t("cta.whatsappMessage")),
+    onlineReservationUrl: getOnlineReservationUrl(),
     trustItems,
     sliderLabels: {
       ariaLabel: t("slider.ariaLabel"),

@@ -17,6 +17,7 @@ export type HeroContentProps = {
   ctaPrimary: string;
   ctaSecondary: string;
   whatsappUrl: string;
+  onlineReservationUrl?: string;
   trustItems: HeroTrustItem[];
   sliderLabels: {
     ariaLabel: string;

@@ -25,6 +25,7 @@ export function HeroContent({
   ctaPrimary,
   ctaSecondary,
   whatsappUrl,
+  onlineReservationUrl,
   trustItems,
 }: HeroContentSectionProps) {
   const isRtl = useIsRtl();
@@ -109,6 +110,7 @@ export function HeroContent({
           primaryLabel={ctaPrimary}
           secondaryLabel={ctaSecondary}
           whatsappUrl={whatsappUrl}
+          onlineReservationUrl={onlineReservationUrl}
         />
       </motion.div>
 
