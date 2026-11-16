@@ -72,6 +72,7 @@ export async function CtaSection({
           callBtnLabel={t("callBtn")}
           whatsappBtnLabel={t("whatsappBtn")}
           onlineReservationBtnLabel={t("onlineReservationBtn")}
+          whatsappMessageTemplate={t("whatsappMessage", { branchName: "{branchName}" })}
         />
       </div>
     </section>

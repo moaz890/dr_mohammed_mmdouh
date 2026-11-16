@@ -80,8 +80,8 @@
       },
       "cta": {
         "primary": "Book Online Consultation",
-        "secondary": "Contact via WhatsApp",
-        "whatsappMessage": "Hello, I would like to book an appointment at Dr. Saleh Specialty Clinics with Prof. Mohammed Mamdouh Saleh."
+        "secondary": "Book In-Clinic Consultation",
+        "whatsappMessage": "Hello, I would like to book an in-person consultation at the clinic."
       },
       "trust": {
         "experience": "Senior Certified Consultant",
@@ -295,7 +295,8 @@
         "description": "Our medical team is readily available to answer your questions and provide personalized clinical guidance.",
         "whatsappBtn": "Chat on WhatsApp",
         "callBtn": "Direct Phone Call",
-        "onlineReservationBtn": "Book Online Consultation"
+        "onlineReservationBtn": "Book Online Consultation",
+        "whatsappMessage": "Hello, I would like to book an in-person consultation at {branchName}"
       },
       "items": {
         "booking": {
@@ -337,6 +338,7 @@
       "directionsBtn": "Get Directions",
       "whatsappBtn": "WhatsApp",
       "onlineReservationBtn": "Book Online Consultation",
+      "whatsappMessage": "Hello, I would like to book an in-person consultation at {branchName}",
       "selectBranch": "View Map",
       "branches": {
         "newCairo": {
@@ -361,6 +363,7 @@
       "callBtn": "Call Now",
       "whatsappBtn": "WhatsApp",
       "onlineReservationBtn": "Book Online Consultation",
+      "whatsappMessage": "Hello, I would like to book an in-person consultation at {branchName}",
       "phone": "+201050600032"
     },
     "socialSection": {
@@ -625,6 +628,16 @@
       "title": "Appointments & Consultations",
       "schedule": "Saturday to Thursday: Morning & Evening Slots",
       "note": "Consultations are strictly by prior appointment to guarantee complete privacy and zero waiting time."
+    },
+    "clinicVisits": {
+      "title": "In-Clinic Visits & Consultations",
+      "schedule": "Saturday to Thursday: Morning & Evening Slots",
+      "note": "Consultations are strictly by prior appointment."
+    },
+    "onlineConsultation": {
+      "title": "Online Consultation Booking",
+      "schedule": "Saturday to Thursday: Morning & Evening Slots",
+      "note": "Consultations are strictly by prior appointment."
     },
     "disclaimer": "Medical Disclaimer: The medical information published on this website is for general health awareness and education only and is not a substitute for professional clinical examination, diagnosis, or personalized medical care.",
     "copyright": "All rights reserved © {year} Dr. Saleh Specialty Clinics — Prof. Mohammed Mamdouh Saleh.",

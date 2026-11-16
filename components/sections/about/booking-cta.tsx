@@ -119,7 +119,7 @@ export function BookingCta() {
   }
 
   const whatsappUrl = buildWhatsAppUrl(
-    `مرحباً دكتور محمد صالح، أود حجز موعد في ${activeBranch.name}.`,
+    tLocations("whatsappMessage", { branchName: activeBranch.name }),
     activeBranch.phone,
   );
 

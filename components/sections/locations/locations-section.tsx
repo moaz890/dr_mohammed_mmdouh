@@ -157,7 +157,7 @@ export async function LocationsSection({ className = "" }: LocationsSectionProps
           >
             {branches.map((branch, index) => {
               const whatsappUrl = buildWhatsAppUrl(
-                `مرحباً دكتور محمد صالح، أود حجز موعد في ${branch.name}.`,
+                t("whatsappMessage", { branchName: branch.name }),
                 branch.phone,
               );
 

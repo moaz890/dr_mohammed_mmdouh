@@ -82,6 +82,22 @@ const ClockIcon = () => (
   </svg>
 );
 
+const VideoCallIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    className="size-4 shrink-0"
+  >
+    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11v2z" />
+    <rect width="14" height="12" x="2" y="6" rx="2" />
+  </svg>
+);
+
 const ShieldCheckIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -390,6 +406,28 @@ export async function SiteFooter({ className = "" }: SiteFooterProps) {
                 </div>
                 <p className="footer-hours-schedule">{t("hours.schedule")}</p>
                 <p className="footer-hours-note">{t("hours.note")}</p>
+              </div>
+
+              {/* In-Clinic Visits Booking Hours */}
+              <div className="footer-hours-card">
+                <div className="footer-hours-header">
+                  <PinIcon />
+                  <span>{t("clinicVisits.title")}</span>
+                </div>
+                <p className="footer-hours-schedule">{t("clinicVisits.schedule")}</p>
+                <p className="footer-hours-note">{t("clinicVisits.note")}</p>
+              </div>
+
+              {/* Online Consultation Booking Hours */}
+              <div className="footer-hours-card">
+                <div className="footer-hours-header">
+                  <VideoCallIcon />
+                  <span>{t("onlineConsultation.title")}</span>
+                </div>
+                <p className="footer-hours-schedule">
+                  {t("onlineConsultation.schedule")}
+                </p>
+                <p className="footer-hours-note">{t("onlineConsultation.note")}</p>
               </div>
             </div>
           </div>

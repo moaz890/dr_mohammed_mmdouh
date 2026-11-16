@@ -18,6 +18,7 @@ interface CtaBranchSwitcherProps {
   callBtnLabel: string;
   whatsappBtnLabel: string;
   onlineReservationBtnLabel?: string;
+  whatsappMessageTemplate?: string;
 }
 
 /* ── Video Call / Telehealth Icon ────────────────────────────────────────── */
@@ -83,6 +84,7 @@ export function CtaBranchSwitcher({
   callBtnLabel,
   whatsappBtnLabel,
   onlineReservationBtnLabel,
+  whatsappMessageTemplate,
 }: CtaBranchSwitcherProps) {
   const [activeBranchId, setActiveBranchId] = useState<"newCairo" | "madinaty">(
     "madinaty",
@@ -94,10 +96,11 @@ export function CtaBranchSwitcher({
     return null;
   }
 
-  const whatsappUrl = buildWhatsAppUrl(
-    `مرحباً دكتور محمد صالح، أود حجز موعد في ${activeBranch.name}.`,
-    activeBranch.phone,
-  );
+  const messageText = whatsappMessageTemplate
+    ? whatsappMessageTemplate.replace("{branchName}", activeBranch.name)
+    : `السلام عليكم ارغب بحجز استشارة من خلال الحضور الي ${activeBranch.name}`;
+
+  const whatsappUrl = buildWhatsAppUrl(messageText, activeBranch.phone);
 
   return (
     <div className="w-full max-w-2xl mx-auto flex flex-col items-center">

@@ -1,13 +1,15 @@
-import { MessageCircle, Video } from "lucide-react";
+import { MapPin, Video } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
+import { routePaths } from "@/config/routes";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { getOnlineReservationUrl } from "@/lib/whatsapp";
 
 type HeroButtonsProps = {
   primaryLabel: string;
   secondaryLabel: string;
-  whatsappUrl: string;
+  whatsappUrl?: string;
   onlineReservationUrl?: string;
   className?: string;
 };
@@ -15,7 +17,6 @@ type HeroButtonsProps = {
 export function HeroButtons({
   primaryLabel,
   secondaryLabel,
-  whatsappUrl,
   onlineReservationUrl,
   className,
 }: HeroButtonsProps) {
@@ -41,18 +42,16 @@ export function HeroButtons({
         <span>{primaryLabel}</span>
       </a>
 
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        href={routePaths.clinics}
         className={cn(
           buttonVariants({ variant: "outline", size: "lg" }),
           "h-12 gap-2.5 rounded-full border-2 border-[var(--brand-pink)]/40 bg-white/80 px-7 text-base font-bold text-[var(--brand-pink)] shadow-sm backdrop-blur-sm transition-all duration-300 hover:bg-[var(--brand-pink-muted)] hover:border-[var(--brand-pink)] hover:-translate-y-0.5 active:translate-y-0",
         )}
       >
-        <MessageCircle className="size-5 text-[var(--brand-pink)]" aria-hidden />
+        <MapPin className="size-5 text-[var(--brand-pink)]" aria-hidden />
         <span>{secondaryLabel}</span>
-      </a>
+      </Link>
     </div>
   );
 }

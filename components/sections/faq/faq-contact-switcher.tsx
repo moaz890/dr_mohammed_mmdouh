@@ -16,6 +16,7 @@ interface FaqContactSwitcherProps {
   callBtnLabel: string;
   whatsappBtnLabel: string;
   onlineReservationBtnLabel?: string;
+  whatsappMessageTemplate?: string;
 }
 
 /* ── Video Call / Telehealth Icon ────────────────────────────────────────── */
@@ -81,6 +82,7 @@ export function FaqContactSwitcher({
   callBtnLabel,
   whatsappBtnLabel,
   onlineReservationBtnLabel,
+  whatsappMessageTemplate,
 }: FaqContactSwitcherProps) {
   const [activeBranchId, setActiveBranchId] = useState<"newCairo" | "madinaty">(
     "madinaty",
@@ -92,10 +94,11 @@ export function FaqContactSwitcher({
     return null;
   }
 
-  const whatsappUrl = buildWhatsAppUrl(
-    `مرحباً دكتور محمد صالح، أود الاستفسار وحجز موعد في ${activeBranch.name}.`,
-    activeBranch.phone,
-  );
+  const messageText = whatsappMessageTemplate
+    ? whatsappMessageTemplate.replace("{branchName}", activeBranch.name)
+    : `السلام عليكم ارغب بحجز استشارة من خلال الحضور الي ${activeBranch.name}`;
+
+  const whatsappUrl = buildWhatsAppUrl(messageText, activeBranch.phone);
 
   return (
     <div className="mt-5 flex flex-col items-center">

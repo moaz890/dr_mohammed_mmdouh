@@ -121,6 +121,9 @@ export async function FaqSection({ className = "" }: FaqSectionProps) {
               callBtnLabel={t("stillHaveQuestions.callBtn")}
               whatsappBtnLabel={t("stillHaveQuestions.whatsappBtn")}
               onlineReservationBtnLabel={t("stillHaveQuestions.onlineReservationBtn")}
+              whatsappMessageTemplate={t("stillHaveQuestions.whatsappMessage", {
+                branchName: "{branchName}",
+              })}
             />
           </div>
         </div>
